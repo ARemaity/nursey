@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">nursey</string>
+
+    <string-array name="spinner1">
+        <item>Me</item>
+        <item>My Father</item>
+        <item>My Mother</item>
+        <item>My son</item>
+        <item>My Daughter</item>
+        <item>My Wife</item>
+        <item>My Husband</item>
+        <item>My Sister</item>
+        <item>My Brother</item>
+        <item>My Grandmother</item>
+        <item>My GrandFather</item>
+    </string-array>
+
 </resources>

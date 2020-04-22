@@ -9,13 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#021C5A"
+                android:text="Client Reistration"
+                android:textAlignment="center"
+                android:textColor="#FFF2F2F7"
+                android:textSize="24sp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
-
+<!--must put here the icon -->
 
             <TextView
                 android:layout_width="0dp"
@@ -24,14 +42,17 @@
                 android:layout_weight="0.6"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Name" />
+                android:text="Name"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/client-name"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
                 android:singleLine="true"></EditText>
@@ -45,30 +66,38 @@
             android:weightSum="2">
 
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="61dp"
+                android:layout_weight="0.3"
+                app:srcCompat="@drawable/icons8-home-page-16" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Address"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/client-address"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-                >
-            </EditText>
+                android:singleLine="true"></EditText>
+
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -77,30 +106,36 @@
             android:weightSum="2">
 
 
-
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                app:srcCompat="@drawable/icons8-phone-24 (1)" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Phone Number"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/client-num"
                 android:layout_width="0dp"
-                android:inputType="phone"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.1"
                 android:imeOptions="actionNext"
+                android:inputType="phone"
                 android:paddingLeft="10dp"
-                android:singleLine="true">
-            </EditText>
+                android:singleLine="true"></EditText>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -109,28 +144,34 @@
             android:weightSum="2">
 
 
-
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                app:srcCompat="@drawable/icons8-secured-letter-16" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="E-mail"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/client-email"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true">
-            </EditText>
+                android:singleLine="true"></EditText>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -140,29 +181,34 @@
             android:weightSum="2">
 
 
-
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                app:srcCompat="@drawable/icons8-privacy-16" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="password"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/client-fpass"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.1"
                 android:imeOptions="actionNext"
-                android:paddingLeft="10dp"
                 android:inputType="textPassword"
-                android:singleLine="true">
-            </EditText>
+                android:paddingLeft="10dp"
+                android:singleLine="true"></EditText>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -170,8 +216,6 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
-
-
 
 
             <TextView
@@ -182,19 +226,19 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Confirm Password"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/client-spass"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
-                android:paddingLeft="10dp"
                 android:inputType="textPassword"
-                android:singleLine="true">
-            </EditText>
+                android:paddingLeft="10dp"
+                android:singleLine="true"></EditText>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -204,28 +248,31 @@
             android:weightSum="2">
 
 
-
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                app:srcCompat="@drawable/icons8-contacts-16" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Patient name"
-                />
+                android:text="Patient "
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent" />
 
-            <EditText
-                android:id="@+id/patient-name"
+            <Spinner
+                android:id="@+id/spinner1"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
-                android:imeOptions="actionNext"
-                android:paddingLeft="10dp"
-                android:singleLine="true">
-            </EditText>
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <!--        <LinearLayout-->
@@ -258,7 +305,9 @@
                 android:layout_weight="0.6"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Patient Case" />
+                android:text="Patient Case"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/case-detail"
@@ -270,21 +319,23 @@
                 android:imeOptions="actionNext"></EditText>
         </LinearLayout>
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
             <Button
                 android:id="@+id/switch_flashlight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
-                android:textColor="@android:color/black"
-                android:background="@android:color/holo_green_light"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:padding="5dp" />
+                android:layout_marginTop="0dp"
+                android:background="@color/colorAccent"
+                android:padding="5dp"
+                android:text="Save"
+                android:textAlignment="center"
+                android:textColor="#FFF2F2F7" />
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>
