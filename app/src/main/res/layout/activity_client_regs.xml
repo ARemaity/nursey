@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".client_regs">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +34,7 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
-<!--must put here the icon -->
+            <!--must put here the icon -->
 
             <TextView
                 android:layout_width="0dp"
@@ -58,6 +59,7 @@
                 android:singleLine="true"></EditText>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -70,8 +72,8 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="61dp"
-                android:layout_weight="0.3"
-                app:srcCompat="@drawable/icons8-home-page-16" />
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/home" />
 
             <TextView
                 android:layout_width="0dp"
@@ -90,7 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
                 android:singleLine="true"></EditText>
@@ -110,8 +112,8 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                app:srcCompat="@drawable/icons8-phone-24 (1)" />
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/phone" />
 
             <TextView
                 android:layout_width="0dp"
@@ -129,7 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:inputType="phone"
                 android:paddingLeft="10dp"
@@ -148,8 +150,8 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                app:srcCompat="@drawable/icons8-secured-letter-16" />
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/letter" />
 
             <TextView
                 android:layout_width="0dp"
@@ -168,11 +170,12 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
                 android:singleLine="true"></EditText>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -185,8 +188,8 @@
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                app:srcCompat="@drawable/icons8-privacy-16" />
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/privacy" />
 
             <TextView
                 android:layout_width="0dp"
@@ -204,12 +207,13 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.1"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:singleLine="true"></EditText>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -240,6 +244,7 @@
                 android:paddingLeft="10dp"
                 android:singleLine="true"></EditText>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -252,8 +257,8 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                app:srcCompat="@drawable/icons8-contacts-16" />
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/contacts" />
 
             <TextView
                 android:layout_width="0dp"
@@ -321,8 +326,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/switch_flashlight"
