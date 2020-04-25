@@ -176,6 +176,7 @@
                 android:paddingLeft="10dp"
                 android:singleLine="true"
                 app:errorEnabled="true"
+
               />
 
         </LinearLayout>
@@ -215,7 +216,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
-                android:singleLine="true"></EditText>
+                android:singleLine="true"
+                app:errorEnabled="true"></EditText>
         </LinearLayout>
 
         <LinearLayout
@@ -246,7 +248,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
-                android:singleLine="true"></EditText>
+                android:singleLine="true"
+                app:errorEnabled="true"></EditText>
         </LinearLayout>
 
         <LinearLayout
