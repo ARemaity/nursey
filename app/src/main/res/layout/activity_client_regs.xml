@@ -9,8 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".client_regs">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +49,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/client-name"
+                android:id="@+id/clientname"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -90,7 +89,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/client-address"
+                android:id="@+id/clientaddress"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -129,7 +128,7 @@
                 android:textColor="@color/colorAccent" />
 
             <EditText
-                android:id="@+id/client-num"
+                android:id="@+id/clientnum"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -168,7 +167,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/client-email"
+                android:id="@+id/clientemail"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -176,6 +175,7 @@
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
+                app:errorEnabled="true"
               />
 
         </LinearLayout>
@@ -207,7 +207,7 @@
                 android:textColor="@color/colorAccent" />
 
             <EditText
-                android:id="@+id/client-fpass"
+                android:id="@+id/clientfpass"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -238,7 +238,7 @@
                 android:textColor="@color/colorAccent" />
 
             <EditText
-                android:id="@+id/client-spass"
+                android:id="@+id/clientspass"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
@@ -277,7 +277,7 @@
                 android:textColorHighlight="@color/colorAccent" />
 
             <EditText
-                android:id="@+id/patient-name"
+                android:id="@+id/patientname"
                 android:layout_width="46dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -303,7 +303,7 @@
                 android:textColor="@color/colorAccent" />
 
             <EditText
-                android:id="@+id/case-detail"
+                android:id="@+id/casedetail"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_margin="10dp"
