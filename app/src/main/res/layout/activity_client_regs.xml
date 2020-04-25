@@ -69,12 +69,7 @@
             tools:context=".client_regs">
 
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="61dp"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/home" />
+
 
             <TextView
                 android:layout_width="0dp"
@@ -109,13 +104,6 @@
             android:weightSum="2">
 
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/phone" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -147,13 +135,6 @@
             android:weightSum="2">
 
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/letter" />
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
@@ -175,6 +156,7 @@
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
+                app:errorEnabled="true"
 
               />
 
@@ -188,12 +170,7 @@
             android:weightSum="2">
 
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/privacy" />
+
 
             <TextView
                 android:layout_width="0dp"
@@ -215,7 +192,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
-                android:singleLine="true"></EditText>
+                android:singleLine="true"
+                app:errorEnabled="true"></EditText>
         </LinearLayout>
 
         <LinearLayout
@@ -246,7 +224,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
-                android:singleLine="true"></EditText>
+                android:singleLine="true"
+                app:errorEnabled="true"></EditText>
         </LinearLayout>
 
         <LinearLayout
@@ -257,12 +236,6 @@
             android:weightSum="2">
 
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/contacts" />
 
             <TextView
                 android:layout_width="0dp"
@@ -278,9 +251,9 @@
 
             <EditText
                 android:id="@+id/patientname"
-                android:layout_width="46dp"
+                android:layout_width="38dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1.5" />
 
         </LinearLayout>
         <LinearLayout
