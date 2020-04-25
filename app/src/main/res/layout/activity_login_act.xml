@@ -62,6 +62,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="No Account yet? create One"
+        android:text="No Account ? Create One"
         android:textAlignment="center" />
 </LinearLayout>
