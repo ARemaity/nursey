@@ -26,8 +26,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:id="@+id/emailLogin"
+        android:id="@+id/emailLogin"
         android:layout_marginHorizontal="30dp"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
         />
 
     <TextView
@@ -48,10 +50,12 @@ android:id="@+id/emailLogin"
         android:paddingHorizontal="12dp"
         android:paddingVertical="20dp"
         android:layout_marginHorizontal="30dp"
+        android:singleLine="true"
         />
 
     <Button
         android:layout_width="match_parent"
+        android:id="@+id/loginbtn"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
