@@ -12,12 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nurse_regs"></activity>
+        <activity android:name=".login_act">   </activity>
         <activity android:name=".client_home" />
         <activity android:name=".nurse_home" />
         <activity android:name=".nurse_add_schdul" />
         <activity android:name=".client_regs" />
-        <activity android:name=".login_act">
+        <activity android:name=".nurse_regs">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

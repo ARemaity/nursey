@@ -39,14 +39,14 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_marginRight="30dp"
+                android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Name"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/clientname"
@@ -69,19 +69,17 @@
             tools:context=".client_regs">
 
 
-
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Address"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/clientaddress"
@@ -107,12 +105,12 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
-                android:text="Phone Number"
-                android:textAlignment="center"
+                android:text="Phone "
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -138,14 +136,14 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="E-mail"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/clientemail"
@@ -170,17 +168,15 @@
             android:weightSum="2">
 
 
-
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="password"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -207,19 +203,20 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
+                android:layout_marginRight="0dp"
+                android:layout_weight="0.7"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Confirm Password"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/clientspass"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="1.3"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
@@ -236,16 +233,15 @@
             android:weightSum="2">
 
 
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Patient "
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
                 android:textColorHighlight="@color/colorAccent" />
 
@@ -253,7 +249,8 @@
                 android:id="@+id/patientname"
                 android:layout_width="38dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5" />
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1.3" />
 
         </LinearLayout>
         <LinearLayout
@@ -267,12 +264,12 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="0.6"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Patient Case"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -281,7 +278,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1.4"
+                android:layout_weight="1.3"
                 android:imeOptions="actionNext"></EditText>
         </LinearLayout>
 
