@@ -26,6 +26,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Email"
         android:id="@+id/emailLogin"
         android:layout_marginHorizontal="30dp"
         android:imeOptions="actionNext"
@@ -65,6 +66,7 @@
         android:textSize="18sp" />
 
     <TextView
+        android:onClick="showpopup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"

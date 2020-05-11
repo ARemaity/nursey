@@ -44,7 +44,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Name"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
@@ -77,7 +77,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Address"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
@@ -110,7 +110,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Phone "
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -141,7 +141,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="E-mail"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp" />
 
@@ -176,7 +176,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="password"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -208,7 +208,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Confirm Password"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent" />
 
             <EditText
@@ -241,7 +241,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Patient "
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent"
                 android:textColorHighlight="@color/colorAccent" />
 
@@ -269,7 +269,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Patient Case"
-                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent" />
 
             <EditText
