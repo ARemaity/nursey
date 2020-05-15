@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nurse_client_profile"></activity>
+        <activity android:name=".nurse_client_requst_profile"></activity>
+        <activity android:name=".nurse_client_acc_profile" />
         <activity
             android:name=".nurse_main"
             android:label="@string/title_activity_nurse_main"
