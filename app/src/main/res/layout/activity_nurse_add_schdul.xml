@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:orientation="vertical"
     tools:context=".nurse_add_schdul">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Schedule"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFCFCFE"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -17,7 +29,6 @@
             android:orientation="horizontal"
             android:weightSum="2">
             <!--must put here the icon -->
-
 
 
             <Button
@@ -29,14 +40,15 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"/>
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/sunedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
 
         </LinearLayout>
 
@@ -50,7 +62,6 @@
             tools:context=".client_regs">
 
 
-
             <Button
 
                 android:id="@+id/monpick"
@@ -60,14 +71,15 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"/>
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/monedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
 
 
         </LinearLayout>
@@ -81,7 +93,6 @@
             android:weightSum="2">
 
 
-
             <Button
 
                 android:id="@+id/tuepick"
@@ -91,15 +102,15 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-            />
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/tueedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -109,7 +120,6 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
-
 
 
             <Button
@@ -125,13 +135,14 @@
 
 
                 />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/wededit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
 
         </LinearLayout>
 
@@ -143,8 +154,6 @@
             android:weightSum="2">
 
 
-
-
             <Button
 
                 android:id="@+id/thupick"
@@ -154,15 +163,15 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-                />
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/thuedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -182,15 +191,15 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-                />
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/friedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -199,8 +208,6 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:weightSum="2">
-
-
 
 
             <Button
@@ -212,16 +219,17 @@
                 android:layout_weight="1"
                 android:imeOptions="actionNext"
                 android:paddingLeft="10dp"
-                android:singleLine="true"
-            />
+                android:singleLine="true" />
+
             <EditText
-                android:enabled="false"
                 android:id="@+id/satedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:enabled="false" />
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -232,7 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="50dp"
                 android:background="@color/colorAccent"
                 android:padding="5dp"
                 android:text="Submit"
@@ -242,5 +250,4 @@
     </LinearLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>
