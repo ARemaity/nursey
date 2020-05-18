@@ -4,17 +4,15 @@ public class clientModel {
 
     private int CID;
     private String fname;
-    private String lname;
     private String address;
     private String email;
     private int phone_number;
     private String patient_name;
     private String case_details;
 
-    public clientModel(int CID, String fname, String lname, String address, String email, int phone_number, String patient_name, String case_details) {
+    public clientModel(int CID, String fname, String address, String email, int phone_number, String patient_name, String case_details) {
         this.CID = CID;
         this.fname = fname;
-        this.lname = lname;
         this.address = address;
         this.email = email;
         this.phone_number = phone_number;
@@ -41,13 +39,7 @@ public class clientModel {
         this.fname = fname;
     }
 
-    public String getLname() {
-        return lname;
-    }
 
-    public void setLname(String lname) {
-        this.lname = lname;
-    }
 
     public String getAddress() {
         return address;
@@ -94,7 +86,6 @@ public class clientModel {
         return "clientModel{" +
                 "CID=" + CID +
                 ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phone_number=" + phone_number +

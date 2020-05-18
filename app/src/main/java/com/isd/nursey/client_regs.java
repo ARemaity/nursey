@@ -27,7 +27,6 @@ import java.util.regex.Pattern;
 public class client_regs extends AppCompatActivity {
     String HttpUrlpost = "https://nursey.000webhostapp.com/api/client-register.php";
     private static ProgressDialog mProgressDialog;
-    public ArrayList<clientModel> dataModelArrayList=new ArrayList<clientModel>();
     ProgressDialog progress;
     RequestQueue requestQueue;
 
@@ -113,6 +112,7 @@ if(validatePassword()) {
             // Adding All values to Params.
             params.put("fname", rname);
             params.put("address", raddress);
+            params.put("pass",rpass);
             params.put("email", remail);
             params.put("phone_number", rnum);
             params.put("patient_name", rpname);

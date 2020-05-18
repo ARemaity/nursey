@@ -1,9 +1,17 @@
 package com.isd.nursey;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -11,29 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import android.os.Handler;
-import android.util.Log;
-import android.view.MenuItem;
-
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
-import androidx.navigation.ui.AppBarConfiguration;
-
-import com.google.android.material.navigation.NavigationView;
 import com.isd.nursey.utils.PreferenceUtils;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,68 +27,43 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class nurse_main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class nurse_view_requestList extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private String URLstring = "https://nursey.000webhostapp.com/api/getallclient.php?status=1&id=";
-    PreferenceUtils utils = new PreferenceUtils();
-    boolean doubleBackToExitPressedOnce = false;
-    private static ProgressDialog mProgressDialog;
-    private ListView listView;
     private  int tid;
     private  String time;
-    ArrayList<clientTimeModel> dataModelArrayList;
-    private ListAdapter listAdapter;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        private String URLstring = "https://nursey.000webhostapp.com/api/getallclient.php?status=0&id=";
+        PreferenceUtils utils = new PreferenceUtils();
+        private static ProgressDialog mProgressDialog;
+        private ListView listView;
+        ArrayList<clientTimeModel> dataModelArrayList;
+        private ListAdapter listAdapter;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nurse_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        final int ids=utils.getID(nurse_main.this);
+        setContentView(R.layout.activity_nurse_view_request_list);
+        final int ids=utils.getID(nurse_view_requestList.this);
         URLstring+=ids;
-        listView=findViewById(R.id.listView3);
+        listView=findViewById(R.id.listView2);
         retrieveJSON();
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+                public void onItemClick(AdapterView<?> a, View v, int position,
+                                        long id) {
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+                    tid= dataModelArrayList.get(position).getTID();
+                    time=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> a, View v, int position,
-                                    long id) {
-
-                tid= dataModelArrayList.get(position).getTID();
-                time=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
-
-                Intent myIntent = new Intent(nurse_main.this, nurse_client_acc_profile.class);
-                myIntent.putExtra("tid", tid);
-                myIntent.putExtra("time", time);
-                startActivity(myIntent);
-            }
-        });
-
-
+                    Intent myIntent = new Intent(nurse_view_requestList.this, nurse_client_requst_profile.class);
+                    myIntent.putExtra("tid", tid);
+                    myIntent.putExtra("time", time);
+                    startActivity(myIntent);
+                }
+            });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.nurse_main, menu);
-        return true;
-    }
+        private void retrieveJSON() {
 
-
-    private void retrieveJSON() {
-
-        showSimpleProgressDialog(nurse_main.this, "Loading...","Please wait",false);
+        showSimpleProgressDialog(nurse_view_requestList.this, "Loading...","Please wait",false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLstring,
                 new Response.Listener<String>() {
@@ -119,7 +80,7 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                             JSONObject ex =new JSONObject(response);
                             int theredata=Integer.parseInt(ex.getString("exsit"));
                             if(theredata==1) {
-                                showSimpleProgressDialog(nurse_main.this, "Loading...","Please wait",false);
+                                showSimpleProgressDialog(nurse_view_requestList.this, "Loading...","Please wait",false);
                                 JSONObject obj = new JSONObject(response);
 
 
@@ -132,9 +93,9 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                                     JSONObject dataobj = dataArray.getJSONObject(i);
                                     Log.d("strrrrr", ">>" + dataobj.getString("TID"));
                                     x.setNumberofHour(Integer.parseInt(dataobj.getString("nbHour")));
-                                    x.setTime(Integer.parseInt(dataobj.getString("time")));
                                     x.setName(dataobj.getString("fname"));
                                     x.setDay(dataobj.getString("day"));
+                                    x.setTime(Integer.parseInt(dataobj.getString("time")));
                                     x.setTID(Integer.parseInt(dataobj.getString("TID")));
 
                                     if (dataModelArrayList.isEmpty()) {
@@ -190,15 +151,15 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
 
 
     }
-    private void setupListview(){
+        private void setupListview(){
 
         removeSimpleProgressDialog();  //will remove progress dialog
-        listAdapter =new clientListAdapter(this,dataModelArrayList);
+        listAdapter =new requestListAdapter(this,dataModelArrayList);
         listView.setAdapter(listAdapter);
 
     }
 
-    public static void removeSimpleProgressDialog() {
+        public static void removeSimpleProgressDialog() {
         try {
             if (mProgressDialog != null) {
                 if (mProgressDialog.isShowing()) {
@@ -216,30 +177,9 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
         }
 
     }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else if (doubleBackToExitPressedOnce) {
-            finishAffinity();
-            finish();
-            return;
-        }
 
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
-    public static void showSimpleProgressDialog(Context context, String title,
-                                                String msg, boolean isCancelable) {
+        public static void showSimpleProgressDialog(Context context, String title,
+            String msg, boolean isCancelable) {
         try {
             if (mProgressDialog == null) {
                 mProgressDialog = ProgressDialog.show(context, title, msg);
@@ -260,29 +200,4 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
     }
 
 
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_Profile) {
-            Intent my_intent= new Intent(nurse_main.this, nurse_client_acc_profile.class);
-            startActivity(my_intent);
-        } else if (id == R.id.nav_request) {
-            Intent my_intent= new Intent(nurse_main.this,nurse_view_requestList.class);
-            startActivity(my_intent);
-
-        } else if (id == R.id.nav_add) {
-            Intent my_intent= new Intent(nurse_main.this,nurse_add_schdul.class);
-            startActivity(my_intent);
-
-        }
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class nurse_regs extends AppCompatActivity {
+public class nurse_own_profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nurse_regs);
+        setContentView(R.layout.activity_nurse_own_profile);
     }
 }
