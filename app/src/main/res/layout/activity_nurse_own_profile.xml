@@ -32,12 +32,7 @@
             android:layout_marginTop="50dp"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView17"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="150dp"
-                app:srcCompat="@drawable/Nurse" />
+
         </LinearLayout>
 
         <LinearLayout

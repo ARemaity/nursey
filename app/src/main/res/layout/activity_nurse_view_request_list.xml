@@ -7,13 +7,10 @@
     android:orientation="vertical">
 
 
-
-
-
         <ListView
             android:id="@+id/listView2"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="575dp"
             android:dividerHeight="2dp"></ListView>
 
 
