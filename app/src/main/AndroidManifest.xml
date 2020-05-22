@@ -32,9 +32,9 @@
         <activity android:name=".nurse_clientList" />
         <activity android:name=".nurse_re" />
         <activity android:name=".client_home" />
-        <activity android:name=".nurse_add_schdul" />
+        <activity android:name=".login_act" />
         <activity android:name=".client_regs" />
-        <activity android:name=".login_act">
+        <activity android:name=".nurse_add_schdul">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
