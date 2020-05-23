@@ -17,7 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".client_nurseList"></activity>
+        <activity android:name=".client_mynursesList" />
+        <activity android:name=".client_update_profile" />
+        <activity
+            android:name=".client_main"
+            android:label="@string/title_activity_client_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".nurse_update_profile" />
+        <activity android:name=".client_nurseList" />
         <activity android:name=".client_nurse_feedback" />
         <activity android:name=".client_search_form" />
         <activity android:name=".nurse_own_profile" />
@@ -32,9 +39,9 @@
         <activity android:name=".nurse_clientList" />
         <activity android:name=".nurse_re" />
         <activity android:name=".client_home" />
-        <activity android:name=".login_act" />
+        <activity android:name=".nurse_add_schdul" />
         <activity android:name=".client_regs" />
-        <activity android:name=".nurse_add_schdul">
+        <activity android:name=".login_act">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

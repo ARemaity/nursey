@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nursename"
+        android:layout_width="92dp"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="name"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/nurseage"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="age"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/nursegender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="gender"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/nurseinterval"
+        android:layout_width="104dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="233dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="interval"
+        android:textSize="15dp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/nurseday"
+        android:layout_width="80dp"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="day"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

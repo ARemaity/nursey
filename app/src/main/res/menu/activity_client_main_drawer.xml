@@ -5,17 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_Profile"
+            android:id="@+id/client_profile"
             android:icon="@drawable/ic_menu_camera"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_add"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="schedule" />
-        <item
-            android:id="@+id/nav_request"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Request" />
+            android:id="@+id/client_nurses"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My Nurses" />
 
     </group>
 
@@ -23,7 +19,7 @@
         <menu>
 
             <item
-                android:id="@+id/nurse_logout"
+                android:id="@+id/client_logout"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Logout" />
         </menu>
