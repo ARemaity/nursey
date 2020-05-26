@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,61 +25,61 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class nurse_own_profile extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class client_nurseList extends AppCompatActivity {
+    private String dayx,cityx,domainx,genderx,hourx;
+    private String URLstring = "https://nursey.000webhostapp.com/api/searchnurse.php?";
     PreferenceUtils utils = new PreferenceUtils();
-    nurseModel nm;
-TextView name,email,address,type,phone,gender,age;
-private String URLstring = "http://nursey.000webhostapp.com/api/getnurse.php?nid=";
     private static ProgressDialog mProgressDialog;
-Button cvbtn,schbtn,updatebtn;
+    private ListView listView;
+    ArrayList<nurseModel> dataModelArrayList;
+    private ListAdapter listAdapter;
+
+// data to be send to single nurse via intent
+
+    private  int nid,sid;
+    private String timerange;
+    private int nursenbhour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nurse_own_profile);
-        final int ids=utils.getID(nurse_own_profile.this);
-        name=findViewById(R.id.nurseownname);
-        email=findViewById(R.id.nurseownemail);
-        address=findViewById(R.id.nurseownaddress);
-        type=findViewById(R.id.nurseowntype);
-        age=findViewById(R.id.nurseownage);
-        phone=findViewById(R.id.nurseownphonenum);
-        gender=findViewById(R.id.nurseowngender);
-        cvbtn=findViewById(R.id.nurseowncv);
-        schbtn=findViewById(R.id.nurseownschd);
-        updatebtn=findViewById(R.id.updatenursebtn);
-        setURLstring(ids);
-        retrieveJSON();
-        cvbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "https://nursey.000webhostapp.com/uploads/"+ids+".pdf";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
-        schbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(nurse_own_profile.this, nurse_add_schdul.class);
-                startActivity(intent);
-            }
-        });
-        updatebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(nurse_own_profile.this, nurse_update_profile.class);
-                startActivity(intent);
+        setContentView(R.layout.activity_client_nurse_list);
+        Bundle bundle = getIntent().getExtras();
+        cityx = bundle.getString("city");
+        genderx = bundle.getString("gender");
+        hourx = bundle.getString("hour");
+        domainx = bundle.getString("domain");
+        dayx = bundle.getString("day");
+        listView=findViewById(R.id.listView4);
+setURL(cityx,genderx,hourx,dayx,domainx);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> a, View v, int position,
+                                    long id) {
+                sid= dataModelArrayList.get(position).getSID();
+                nid= dataModelArrayList.get(position).getNID();
+                nursenbhour= dataModelArrayList.get(position).getNumberofHour();
+                timerange=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
+                Intent myIntent = new Intent(client_nurseList.this, client_nurse_req_profile.class);
+                myIntent.putExtra("nid", nid);
+                myIntent.putExtra("sid", sid);
+                myIntent.putExtra("timerange", timerange);
+                myIntent.putExtra("nursenbhour", nursenbhour);
+
+                startActivity(myIntent);
             }
         });
 
+retrieveJSON();
     }
-    public void setURLstring(int id) {
-        this.URLstring+=id;
-    }
+public  void  setURL(String c,String g,String h,String d,String dmn){
+        this.URLstring+="h="+h+"&d="+d+"&g="+g+"&c="+c+"&dmn="+dmn;
+}
     private void retrieveJSON() {
 
-        showSimpleProgressDialog(nurse_own_profile.this, "Loading...","Please wait",false);
+        showSimpleProgressDialog(client_nurseList.this, "Loading...","Please wait",false);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLstring,
                 new Response.Listener<String>() {
@@ -96,30 +96,41 @@ Button cvbtn,schbtn,updatebtn;
                             JSONObject ex =new JSONObject(response);
                             int theredata=Integer.parseInt(ex.getString("exsit"));
                             if(theredata==1) {
-                                showSimpleProgressDialog(nurse_own_profile.this, "Loading...","Please wait",false);
+                                showSimpleProgressDialog(client_nurseList.this, "Loading...","Please wait",false);
                                 JSONObject obj = new JSONObject(response);
+                                dataModelArrayList = new ArrayList<>();
                                 JSONArray dataArray = obj.getJSONArray("data");
 
                                 for (int i = 0; i < dataArray.length(); i++) {
-                                    nm =new nurseModel();
 
+                                    nurseModel x = new nurseModel();
                                     JSONObject dataobj = dataArray.getJSONObject(i);
+                                    x.setNID(Integer.parseInt(dataobj.getString("NID")));
+                                    x.setSID(Integer.parseInt(dataobj.getString("SID")));
+                                    x.setName(dataobj.getString("fname"),dataobj.getString("lname"));
+                                    x.setDob(dataobj.getString("dob"));
+                                    x.setGender(dataobj.getString("gender"));
+                                    x.setDay(dataobj.getString("day"));
+                                    x.setNumberofHour(Integer.parseInt(dataobj.getString("available_time")));
 
 
-                                    name.setText(dataobj.getString("fname")+" "+dataobj.getString("lname"));
-                                    address.setText(dataobj.getString("address"));
-                                    nm.setDob(dataobj.getString("dob"));
-                                    age.setText(nm.getAge());
-                                    phone.setText(dataobj.getString("phone_number"));
-                                    email.setText(dataobj.getString("email"));
-                                    gender.setText(dataobj.getString("gender"));
-                                    type.setText(dataobj.getString("domain"));
 
-                                    removeSimpleProgressDialog();
+                                    dataModelArrayList.add(x);
+                                    if (dataModelArrayList.isEmpty()) {
+                                        Log.d("Aftrrrrrrrrr", ">>>>>>>>>>>>>>>>>>0000000000000000");
+
+
+                                    } else {
+
+
+                                        Log.d("Aftrrrrrrrr", ">>>>>>>>>11111111111111111111111");
+                                        setupListview();
+                                    }
+
                                 }
 
 
-
+                                removeSimpleProgressDialog();
                             }else{
 
 
@@ -148,7 +159,13 @@ Button cvbtn,schbtn,updatebtn;
 
 
     }
+    private void setupListview(){
 
+        removeSimpleProgressDialog();  //will remove progress dialog
+        listAdapter =new nurseListAdapter(this,dataModelArrayList);
+        listView.setAdapter(listAdapter);
+
+    }
 
     public static void removeSimpleProgressDialog() {
         try {
@@ -188,10 +205,5 @@ Button cvbtn,schbtn,updatebtn;
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        retrieveJSON();
     }
 }

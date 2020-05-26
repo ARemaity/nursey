@@ -33,12 +33,12 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
     ProgressDialog progress;
     RequestQueue requestQueue;
     PreferenceUtils utils = new PreferenceUtils();
-EditText suned,sated,monde,weded,tuesde,thured,fried;
-Button sunbt,satbt,monbt,wedbtn,tuesbt,thubt,fribt;
-String sunst="1",satst="1",monst="1",wedst="1",tuesst="1",thust="1",frist="1";
- String sunx,satx,monx,wedx,tuesx,thux,frix;
-int i;
-Button submitsc;
+    EditText suned,sated,monde,weded,tuesde,thured,fried;
+    Button sunbt,satbt,monbt,wedbtn,tuesbt,thubt,fribt;
+    String sunst="1",satst="1",monst="1",wedst="1",tuesst="1",thust="1",frist="1";
+    String sunx,satx,monx,wedx,tuesx,thux,frix;
+    int i;
+    Button submitsc;
 
     Calendar calendar ;
     TimePickerDialog timePickerDialog ;
@@ -371,60 +371,56 @@ Button submitsc;
         {
 
             case 0 :
-               sunst=Integer.toString(hourOfDay);
-               sunbt.setText(hourOfDay+":"+minute);
-               suned.setEnabled(true);
-             SelectedTime = "sunst Time is " + hourOfDay ;
+                sunst=Integer.toString(hourOfDay);
+                sunbt.setText(hourOfDay+":00");
+                suned.setEnabled(true);
+
 
                 break; // break is optional
 
             case 1 :
                 monst=Integer.toString(hourOfDay);
-                monbt.setText(monst+":"+minute);
+                monbt.setText(monst+":00");
                 monde.setEnabled(true);
-                SelectedTime = "monst Time is " + hourOfDay ;
                 break; // break is optional
 
             // values must be of same type of expression
             case 2 :
                 tuesst=Integer.toString(hourOfDay);
-                tuesbt.setText(tuesst+":"+minute);
+                tuesbt.setText(tuesst+":00");
                 tuesde.setEnabled(true);
-                SelectedTime = "tuesst Time is " + hourOfDay ;
+
                 break; // break is optional
 
             case 3:
                 wedst=Integer.toString(hourOfDay);
-                wedbtn.setText(wedst+":"+minute);
+                wedbtn.setText(wedst+":00");
                 weded.setEnabled(true);
-                SelectedTime = "wedst Time is " + hourOfDay ;
                 break; // break is optional
 
             case 4 :
                 thust=Integer.toString(hourOfDay);
-                thubt.setText(thust+":"+minute);
+                thubt.setText(thust+":00");
                 thured.setEnabled(true);
-                SelectedTime = "thust Time is " + hourOfDay ;
                 break; // break is optional
 
             case 5 :
                 frist=Integer.toString(hourOfDay);
-                fribt.setText(frist+":"+minute);
+                fribt.setText(frist);
                 fried.setEnabled(true);
-                SelectedTime = "Selected Time is " + hourOfDay ;
+
                 break;
             case 6 :
                 satst=Integer.toString(hourOfDay);
-                satbt.setText(satst+":"+minute);
+                satbt.setText(satst+":00");
                 sated.setEnabled(true);
-                SelectedTime = "satst Time is " + hourOfDay ;
+
                 break;
             default :
                 monst=Integer.toString(hourOfDay);
-                SelectedTime = "monst Time is " + hourOfDay ;
 
         }
-        Toast.makeText(nurse_add_schdul.this, SelectedTime, Toast.LENGTH_LONG).show();
+
 
     }
 

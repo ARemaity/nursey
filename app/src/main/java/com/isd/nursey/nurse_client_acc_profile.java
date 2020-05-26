@@ -50,27 +50,27 @@ TextView fname,address,phone,email,pname,pcase,time;
         time=findViewById(R.id.nurseClientProfilehour);
         delete=findViewById(R.id.nurseClientdltBtn);
         Intent mIntent = getIntent();
-       TID = mIntent.getIntExtra("tid",0);
+        TID = mIntent.getIntExtra("tid",0);
        setURLstring(TID);
         interval = mIntent.getStringExtra("time");
-        time.setText(interval);
+
         retrieveJSON();
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                mProgressDialog.setMessage("Please Wait, Server is Working :)");
-                mProgressDialog.show();
-
+                showSimpleProgressDialog(nurse_client_acc_profile.this, "Loading...","Please wait",false);
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, deleteURL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String ServerResponse) {
 
-                                // Hiding the progress dialog after all task complete.
-                                mProgressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(), ServerResponse , Toast.LENGTH_SHORT).show();
+                                removeSimpleProgressDialog();
+                                finish();
+
                             }
                         },
                         new Response.ErrorListener() {
@@ -78,7 +78,7 @@ TextView fname,address,phone,email,pname,pcase,time;
                             public void onErrorResponse(VolleyError volleyError) {
 
                                 // Hiding the progress dialog after all task complete.
-                                progress.dismiss();
+                                removeSimpleProgressDialog();
 
                                 // Showing error message if something goes wrong.
                                 Toast.makeText(nurse_client_acc_profile.this, "the error"+volleyError.toString(), Toast.LENGTH_LONG).show();
@@ -148,13 +148,13 @@ TextView fname,address,phone,email,pname,pcase,time;
                                     JSONObject dataobj = dataArray.getJSONObject(i);
 
 
-                                    fname.setText("name : "+dataobj.getString("fname"));
-                                     address.setText("Address: "+dataobj.getString("address"));
-                                     phone.setText("Phone number : "+dataobj.getString("phone_number"));
+                                    fname.setText(dataobj.getString("fname"));
+                                     address.setText(dataobj.getString("address"));
+                                     phone.setText(dataobj.getString("phone_number"));
                                          email.setText(dataobj.getString("email"));
-                                      pname.setText("Patient name : "+dataobj.getString("patient_name"));
-                                       pcase.setText("Patient Case : "+dataobj.getString("case_details"));
-
+                                      pname.setText(dataobj.getString("patient_name"));
+                                       pcase.setText("Case: "+dataobj.getString("case_details"));
+                                    time.setText(interval);
                                     removeSimpleProgressDialog();
                                 }
 

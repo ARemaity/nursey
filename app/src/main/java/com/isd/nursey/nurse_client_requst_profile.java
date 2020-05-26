@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,13 +23,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class nurse_client_requst_profile extends AppCompatActivity {
     TextView fname,address,phone,email,pname,pcase,time;
     private String URLstring = "https://nursey.000webhostapp.com/api/getclient.php?tid=";
     private static ProgressDialog mProgressDialog;
-    Button delete;
-    private int TID;
+    Button delete,accept;
+    private int TID,hour;
     private  String interval;
+    String deleteURL = "https://nursey.000webhostapp.com/api/delete-client.php";
+    String acceptURL = "https://nursey.000webhostapp.com/api/accept-client.php";
+    RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +47,121 @@ public class nurse_client_requst_profile extends AppCompatActivity {
         pname=findViewById(R.id.nurseClientReqpname);
         pcase=findViewById(R.id.nurseClientReqpdetails);
         time=findViewById(R.id.nurseClientReqhour);
-        delete=findViewById(R.id.nurseClientdltBtn);
+        delete=findViewById(R.id.deletebtn);
+        accept=findViewById(R.id.acceptbtn);
         Intent mIntent = getIntent();
         TID = mIntent.getIntExtra("tid",0);
+        hour = mIntent.getIntExtra("hour",0);
         setURLstring(TID);
         interval = mIntent.getStringExtra("time");
         time.setText(interval);
         retrieveJSON();
+
+
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                showSimpleProgressDialog(nurse_client_requst_profile.this, "Loading...","Please wait",false);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, acceptURL,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String ServerResponse) {
+
+                                Toast.makeText(getApplicationContext(), ServerResponse , Toast.LENGTH_SHORT).show();
+                                removeSimpleProgressDialog();
+                                finish();
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+
+                                // Hiding the progress dialog after all task complete.
+                                removeSimpleProgressDialog();
+
+                                // Showing error message if something goes wrong.
+                                Toast.makeText(nurse_client_requst_profile.this, "the error"+volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                            }
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+
+
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("tid",Integer.toString(TID));
+                        params.put("hour",Integer.toString(hour));
+                        return params;
+                    }
+
+                };
+
+                requestQueue = Volley.newRequestQueue(nurse_client_requst_profile.this);
+
+
+                requestQueue.add(stringRequest);
+
+            }
+
+
+
+
+        });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                showSimpleProgressDialog(nurse_client_requst_profile.this, "Loading...","Please wait",false);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, deleteURL,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String ServerResponse) {
+
+                                Toast.makeText(getApplicationContext(), ServerResponse , Toast.LENGTH_SHORT).show();
+                                removeSimpleProgressDialog();
+                                finish();
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+
+                                // Hiding the progress dialog after all task complete.
+                                removeSimpleProgressDialog();
+
+                                // Showing error message if something goes wrong.
+                                Toast.makeText(nurse_client_requst_profile.this, "the error"+volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                            }
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("tid",Integer.toString(TID));
+                        return params;
+                    }
+
+                };
+
+                requestQueue = Volley.newRequestQueue(nurse_client_requst_profile.this);
+
+
+                requestQueue.add(stringRequest);
+
+            }
+
+
+
+
+        });
+
     }
     public void setURLstring(int id) {
         this.URLstring+=id;

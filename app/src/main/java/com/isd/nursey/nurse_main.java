@@ -52,7 +52,9 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
     private  int tid;
     private  String time;
     ArrayList<clientTimeModel> dataModelArrayList;
+    ArrayList<clientTimeModel> emptyArraylist;
     private ListAdapter listAdapter;
+    private ListAdapter emptyList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,13 +77,10 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            public void onItemClick(AdapterView<?> a, View v, int position,
-                                    long id) {
-
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 tid= dataModelArrayList.get(position).getTID();
                 time=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
-
                 Intent myIntent = new Intent(nurse_main.this, nurse_client_acc_profile.class);
                 myIntent.putExtra("tid", tid);
                 myIntent.putExtra("time", time);
@@ -91,7 +90,11 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
 
 
     }
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        retrieveJSON();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -165,9 +168,8 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                             }else{
 
 
-                                Toast.makeText(getApplicationContext(), "no data to view ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "No Client Right Now ", Toast.LENGTH_SHORT).show();
                                 removeSimpleProgressDialog();
-                                finish();
                             }
 
                         } catch (JSONException e) {
@@ -192,7 +194,7 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
     }
     private void setupListview(){
 
-        removeSimpleProgressDialog();  //will remove progress dialog
+        removeSimpleProgressDialog();
         listAdapter =new clientListAdapter(this,dataModelArrayList);
         listView.setAdapter(listAdapter);
 
@@ -267,7 +269,7 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
         int id = item.getItemId();
 
         if (id == R.id.nav_Profile) {
-            Intent my_intent= new Intent(nurse_main.this, nurse_client_acc_profile.class);
+            Intent my_intent= new Intent(nurse_main.this, nurse_own_profile.class);
             startActivity(my_intent);
         } else if (id == R.id.nav_request) {
             Intent my_intent= new Intent(nurse_main.this,nurse_view_requestList.class);
@@ -276,6 +278,18 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
         } else if (id == R.id.nav_add) {
             Intent my_intent= new Intent(nurse_main.this,nurse_add_schdul.class);
             startActivity(my_intent);
+
+        }else if (id == R.id.nurse_logout) {
+            Toast.makeText(nurse_main.this, "logging Out", Toast.LENGTH_LONG).show();
+            PreferenceUtils.saveEmail("", nurse_main.this);
+            PreferenceUtils.saveType("", nurse_main.this);
+            PreferenceUtils.saveID(0, nurse_main.this);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    nurse_main.this.finish();
+                }
+            }, 1000);
 
         }
 

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class nurse_view_requestList extends AppCompatActivity {
 
-    private  int tid;
+    private  int tid,hour;
     private  String time;
         private String URLstring = "https://nursey.000webhostapp.com/api/getallclient.php?status=0&id=";
         PreferenceUtils utils = new PreferenceUtils();
@@ -37,6 +37,9 @@ public class nurse_view_requestList extends AppCompatActivity {
         private ListView listView;
         ArrayList<clientTimeModel> dataModelArrayList;
         private ListAdapter listAdapter;
+    ArrayList<clientTimeModel> emptyArraylist;
+
+    private ListAdapter emptyList;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +55,11 @@ public class nurse_view_requestList extends AppCompatActivity {
 
                     tid= dataModelArrayList.get(position).getTID();
                     time=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
-
+hour=dataModelArrayList.get(position).getNumberofHour();
                     Intent myIntent = new Intent(nurse_view_requestList.this, nurse_client_requst_profile.class);
                     myIntent.putExtra("tid", tid);
                     myIntent.putExtra("time", time);
+                    myIntent.putExtra("hour", hour);
                     startActivity(myIntent);
                 }
             });
@@ -126,9 +130,8 @@ public class nurse_view_requestList extends AppCompatActivity {
                             }else{
 
 
-                                Toast.makeText(getApplicationContext(), "no data to view ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "No Request Right Now ", Toast.LENGTH_SHORT).show();
                                 removeSimpleProgressDialog();
-                                finish();
                             }
 
                         } catch (JSONException e) {
@@ -199,5 +202,9 @@ public class nurse_view_requestList extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        retrieveJSON();
+    }
 }

@@ -4,28 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nurse_own_profile">
+    tools:context=".client_nurse_req_profile">
 
     <LinearLayout
+        android:id="@+id/maincontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:text="My Profile"
-                android:textAlignment="center"
-                android:textColor="#FFFCFCFE"
-                android:textSize="24sp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +35,7 @@
 
 
             <TextView
-                android:id="@+id/nurseownname"
+                android:id="@+id/clientreqnursename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Christy Fred"
@@ -58,7 +45,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/nurseowntype"
+            android:id="@+id/clientreqnursetype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -82,7 +69,7 @@
                 app:srcCompat="@drawable/contacts" />
 
             <TextView
-                android:id="@+id/nurseowngender"
+                android:id="@+id/clientreqnursegender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -109,7 +96,7 @@
                 app:srcCompat="@drawable/age" />
 
             <TextView
-                android:id="@+id/nurseownage"
+                android:id="@+id/clientreqnurseage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
@@ -135,7 +122,7 @@
                 app:srcCompat="@drawable/home" />
 
             <TextView
-                android:id="@+id/nurseownaddress"
+                android:id="@+id/clientreqnurseaddress"
                 android:layout_width="304dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -152,77 +139,25 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="78dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/phone" />
-
-            <TextView
-                android:id="@+id/nurseownphonenum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_weight="0.8"
-                android:text="Phone Number: 03123456"
-                android:textColor="@color/colorAccent"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="92dp"
+                android:id="@+id/imageView10"
+                android:layout_width="69dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="0.1"
-                app:srcCompat="@drawable/letter" />
+                app:srcCompat="@drawable/salary" />
 
             <TextView
-                android:id="@+id/nurseownemail"
+                android:id="@+id/clientreqnursetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Email: christy@hotmail.com"
+                android:layout_weight="0.8"
+                android:text="Monday 11:00 13:00"
+                android:textAlignment="viewStart"
+
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
         </LinearLayout>
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView10"-->
-<!--                android:layout_width="69dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginStart="15dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_weight="0.1"-->
-<!--                app:srcCompat="@drawable/salary" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/nurseownsalary"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.8"-->
-<!--                android:text="20$ per Hour"-->
-<!--                android:textAlignment="viewStart"-->
-
-<!--                android:textColor="@color/colorAccent"-->
-<!--                android:textSize="18sp" />-->
-<!--        </LinearLayout>-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -231,19 +166,19 @@
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="10dp"
-                android:layout_height="30dp"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="70dp"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/cv" />
 
             <Button
-                android:id="@+id/nurseowncv"
+                android:id="@+id/clientreqnursecv"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
-                android:layout_weight="0.1"
+                android:layout_weight="0.8"
                 android:background="@color/colorAccent"
                 android:text="View CV"
                 android:textColor="#FFFCFCFE" />
@@ -254,29 +189,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:id="@+id/feedbackcontainer"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="70dp"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/planner" />
-
-            <Button
-                android:id="@+id/nurseownschd"
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="50dp"
-                android:layout_weight="0.1"
-                android:background="@color/colorAccent"
-                android:text="View Schedule"
-                android:textColor="#FFFCFCFE" />
+            <ListView
+                android:id="@+id/clientreqnursfeedbacklist"
+                android:layout_width="match_parent"
+                android:layout_height="480dp"></ListView>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
+
+            <TextView
+                android:layout_width="168dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="number of hour needed"
+
+                android:textColor="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent" />
+
+            <EditText
+                android:id="@+id/clientnbofhour"
+                android:layout_width="38dp"
+                android:hint="2"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1.3" />
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -286,12 +236,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/updatenursebtn"
+                android:id="@+id/requstnusebtn"
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_marginStart="80dp"
                 android:background="@color/colorAccent"
-                android:text="Update"
+                android:text="Request"
                 android:textColor="#FFFCFCFE" />
         </LinearLayout>
     </LinearLayout>

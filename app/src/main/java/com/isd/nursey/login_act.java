@@ -63,7 +63,7 @@ public class login_act extends AppCompatActivity {
 
             } else if (utils.getType(this).equals("client")) {
 
-                Intent intent = new Intent(login_act.this, client_home.class);
+                Intent intent = new Intent(login_act.this, client_main.class);
                 startActivity(intent);
 
 
@@ -84,7 +84,6 @@ public class login_act extends AppCompatActivity {
         if(validateEmail()){
     semail = emailEdittext.getText().toString();
     spassword = passwordEdittext.getText().toString();
-    Log.d("email/pass String", ">>>>>>>>>>>>>>>>>>"+semail+">>>>>>>>>>>>>>>>>>>>>>"+spassword );
     progress.setMessage("Please Wait, Server is Working :)");
     progress.show();
 
@@ -105,7 +104,7 @@ if(part1.equals("2")){
     PreferenceUtils.saveEmail(semail, login_act.this);
     PreferenceUtils.saveType("client", login_act.this);
     PreferenceUtils.saveID(idnurse, login_act.this);
-    Intent intent = new Intent(login_act.this, client_home.class);
+    Intent intent = new Intent(login_act.this, client_main.class);
     startActivity(intent);
 
 }else if(part1.equals("1")){

@@ -1,20 +1,6 @@
 <resources>
     <string name="app_name">nursey</string>
 
-    <string-array name="spinner1">
-        <item>Me</item>
-        <item>My Father</item>
-        <item>My Mother</item>
-        <item>My son</item>
-        <item>My Daughter</item>
-        <item>My Wife</item>
-        <item>My Husband</item>
-        <item>My Sister</item>
-        <item>My Brother</item>
-        <item>My Grandmother</item>
-        <item>My GrandFather</item>
-    </string-array>
-    <string name="title_activity_nurse_main">nurse_main</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -28,6 +14,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <string name="title_activity_client_main">client_main</string>
+
 
 </resources>
