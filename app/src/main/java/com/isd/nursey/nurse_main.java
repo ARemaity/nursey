@@ -31,6 +31,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -51,6 +52,8 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
     private ListView listView;
     private  int tid;
     private  String time;
+    LinearLayout ll;
+    LinearLayout fl;
     ArrayList<clientTimeModel> dataModelArrayList;
     ArrayList<clientTimeModel> emptyArraylist;
     private ListAdapter listAdapter;
@@ -64,6 +67,8 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
         final int ids=utils.getID(nurse_main.this);
         URLstring+=ids;
         listView=findViewById(R.id.listView3);
+        ll = findViewById(R.id.nursemaincontainer);
+        fl =  findViewById(R.id.nurselistcontainer);
         retrieveJSON();
 
 
@@ -169,6 +174,7 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
 
 
                                 Toast.makeText(getApplicationContext(), "No Client Right Now ", Toast.LENGTH_SHORT).show();
+                                listView.setAdapter(null);
                                 removeSimpleProgressDialog();
                             }
 

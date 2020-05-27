@@ -10,6 +10,7 @@ public class nurseModel {
     private String dob;
     private   String address;
     private int phone_number;
+    private String email;
     private String domain;
     private   String gender;
     private int numberofHour;
@@ -142,5 +143,17 @@ public String getName(){
 
         return  Integer.toString(result);
 
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

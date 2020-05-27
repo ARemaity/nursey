@@ -131,6 +131,7 @@ hour=dataModelArrayList.get(position).getNumberofHour();
 
 
                                 Toast.makeText(getApplicationContext(), "No Request Right Now ", Toast.LENGTH_SHORT).show();
+                                listView.setAdapter(null);
                                 removeSimpleProgressDialog();
                             }
 

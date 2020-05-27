@@ -49,7 +49,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
     private ListView listView;
     LinearLayout ll;
     LinearLayout fl;
-    int sid,nursenbhour;
+    int sid,nursenbhour,clienthour;
     String timerange;
     ArrayList<feedbackModel> dataModelArrayList;
     private ListAdapter listAdapter;
@@ -74,6 +74,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
         nurseid = mIntent.getIntExtra("nid",0);
         sid = mIntent.getIntExtra("sid",0);
         nursenbhour=mIntent.getIntExtra("nursenbhour",0);
+        clienthour=mIntent.getIntExtra("clienthour", clienthour);
         timerange= mIntent.getStringExtra("timerange");
         time.setText(timerange);
         setURLstring(nurseid);
@@ -91,55 +92,66 @@ public class client_nurse_req_profile extends AppCompatActivity {
         requestbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finalnbhour=nbofhour.getText().toString().trim();
-                int value=Integer.parseInt(finalnbhour);
-                if(value>nursenbhour){
-                    nbofhour.setError("can't be more than "+nursenbhour);
+
+                finalnbhour = nbofhour.getText().toString().trim();
+
+                if (finalnbhour.isEmpty()) {
+                    nbofhour.setError("can't be empty");
                     nbofhour.setText("");
                     nbofhour.requestFocus();
-                }
-                showSimpleProgressDialog(client_nurse_req_profile.this, "Loading...","Please wait",false);
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, URLRequest,
-                        new Response.Listener<String>() {
+                } else {
+                    int value = Integer.parseInt(finalnbhour);
+                    if (value > nursenbhour) {
+                        nbofhour.setError("can't be more than " + nursenbhour);
+                        nbofhour.setText("");
+                        nbofhour.requestFocus();
+                    } else {
+                        showSimpleProgressDialog(client_nurse_req_profile.this, "Loading...", "Please wait", false);
+
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLRequest,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String ServerResponse) {
+
+                                        Toast.makeText(getApplicationContext(), ServerResponse, Toast.LENGTH_SHORT).show();
+                                        removeSimpleProgressDialog();
+                                        finish();
+
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError volleyError) {
+
+                                        // Hiding the progress dialog after all task complete.
+                                        removeSimpleProgressDialog();
+
+                                        // Showing error message if something goes wrong.
+                                        Toast.makeText(client_nurse_req_profile.this, "the error" + volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                                    }
+                                }) {
                             @Override
-                            public void onResponse(String ServerResponse) {
+                            protected Map<String, String> getParams() {
 
-                                Toast.makeText(getApplicationContext(), ServerResponse , Toast.LENGTH_SHORT).show();
-                                removeSimpleProgressDialog();
-                                finish();
 
+                                Map<String, String> params = new HashMap<String, String>();
+                                params.put("sid", Integer.toString(sid));
+                                params.put("cid", Integer.toString(ids));
+                                params.put("time", Integer.toString(clienthour));
+                                params.put("nbo bfhour", finalnbhour);
+                                return params;
                             }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
 
-                                // Hiding the progress dialog after all task complete.
-                                removeSimpleProgressDialog();
+                        };
 
-                                // Showing error message if something goes wrong.
-                                Toast.makeText(client_nurse_req_profile.this, "the error"+volleyError.toString(), Toast.LENGTH_LONG).show();
-
-                            }
-                        }) {
-                    @Override
-                    protected Map<String, String> getParams() {
+                        RequestQueue requestQueues = Volley.newRequestQueue(client_nurse_req_profile.this);
 
 
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("sid",Integer.toString(sid));
-                        params.put("cid",Integer.toString(ids));
-                        params.put("nbofhour",finalnbhour);
-                        return params;
+                        requestQueues.add(stringRequest);
                     }
-
-                };
-
-                RequestQueue  requestQueues = Volley.newRequestQueue(client_nurse_req_profile.this);
-
-
-                   requestQueues.add(stringRequest);
+                }
             }
         });
 

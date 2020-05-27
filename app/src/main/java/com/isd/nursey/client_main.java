@@ -448,7 +448,7 @@ Button searchbtn,hourbtn;
             startActivity(my_intent);
 
         } else if (id == R.id.client_nurses) {
-        Intent my_intent= new Intent(client_main.this,nurse_view_requestList.class);
+        Intent my_intent= new Intent(client_main.this,client_mynursesList.class);
         startActivity(my_intent);
 
         } else if (id == R.id.client_logout) {

@@ -40,7 +40,7 @@ public class client_nurseList extends AppCompatActivity {
 
     private  int nid,sid;
     private String timerange;
-    private int nursenbhour;
+    private int nursenbhour,clienthour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +60,7 @@ setURL(cityx,genderx,hourx,dayx,domainx);
                                     long id) {
                 sid= dataModelArrayList.get(position).getSID();
                 nid= dataModelArrayList.get(position).getNID();
+                clienthour=dataModelArrayList.get(position).getTime();
                 nursenbhour= dataModelArrayList.get(position).getNumberofHour();
                 timerange=dataModelArrayList.get(position).getDay()+"  "+ dataModelArrayList.get(position).gettimeInterval();
                 Intent myIntent = new Intent(client_nurseList.this, client_nurse_req_profile.class);
@@ -67,7 +68,7 @@ setURL(cityx,genderx,hourx,dayx,domainx);
                 myIntent.putExtra("sid", sid);
                 myIntent.putExtra("timerange", timerange);
                 myIntent.putExtra("nursenbhour", nursenbhour);
-
+                myIntent.putExtra("clienthour", clienthour);
                 startActivity(myIntent);
             }
         });
@@ -110,6 +111,7 @@ public  void  setURL(String c,String g,String h,String d,String dmn){
                                     x.setName(dataobj.getString("fname"),dataobj.getString("lname"));
                                     x.setDob(dataobj.getString("dob"));
                                     x.setGender(dataobj.getString("gender"));
+                                    x.setTime(Integer.parseInt(dataobj.getString(("time"))));
                                     x.setDay(dataobj.getString("day"));
                                     x.setNumberofHour(Integer.parseInt(dataobj.getString("available_time")));
 

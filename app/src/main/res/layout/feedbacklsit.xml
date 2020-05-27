@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/feedbackmessage"
-        android:layout_width="276dp"
-        android:layout_height="140dp"
+        android:layout_width="264dp"
+        android:layout_height="83dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="134dp"
         android:layout_marginTop="10dp"

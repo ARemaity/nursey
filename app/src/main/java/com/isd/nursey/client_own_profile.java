@@ -179,4 +179,9 @@ public class client_own_profile extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        retrieveJSON();
+    }
 }
