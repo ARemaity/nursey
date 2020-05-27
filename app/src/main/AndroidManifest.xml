@@ -23,6 +23,7 @@
         <activity android:name=".client_nurse_feedback" />
         <activity android:name=".client_search_form" />
         <activity android:name=".client_update_profile" />
+        <activity android:name=".nurse_update_profile" />
         <activity android:name=".nurse_add_schdul" />
         <activity android:name=".client_own_profile" />
         <activity android:name=".nurse_client_requst_profile" />
