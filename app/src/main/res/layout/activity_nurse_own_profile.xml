@@ -155,7 +155,7 @@
                 android:id="@+id/imageView12"
                 android:layout_width="78dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/phone" />
@@ -233,8 +233,8 @@
                 android:id="@+id/imageView15"
                 android:layout_width="10dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="70dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/cv" />
 
@@ -242,7 +242,8 @@
                 android:id="@+id/nurseowncv"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="90dp"
                 android:layout_weight="0.1"
                 android:background="@color/colorAccent"
                 android:text="View CV"
@@ -260,8 +261,8 @@
                 android:id="@+id/imageView16"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="70dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/planner" />
 
@@ -269,8 +270,8 @@
                 android:id="@+id/nurseownschd"
                 android:layout_width="90dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="90dp"
                 android:layout_weight="0.1"
                 android:background="@color/colorAccent"
                 android:text="View Schedule"

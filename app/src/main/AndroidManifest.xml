@@ -27,7 +27,7 @@
         <activity android:name=".nurse_add_schdul" />
         <activity android:name=".client_own_profile" />
         <activity android:name=".nurse_client_requst_profile" />
-        <activity android:name=".nurse_client_acc_profile" />
+
         <activity
             android:name=".nurse_main"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -39,7 +39,8 @@
         <activity android:name=".nurse_re" />
         <activity android:name=".nurse_own_profile" />
         <activity android:name=".client_regs" />
-        <activity android:name=".login_act">
+        <activity android:name=".login_act"/>
+        <activity android:name=".nurse_client_acc_profile" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

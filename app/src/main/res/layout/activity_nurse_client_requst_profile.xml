@@ -167,7 +167,7 @@
 
                 <TextView
                     android:id="@+id/nurseClientReqpdetails"
-                    android:layout_width="29dp"
+                    android:layout_width="227dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:text="Patient Case"
