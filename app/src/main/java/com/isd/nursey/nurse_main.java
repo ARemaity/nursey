@@ -41,13 +41,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class nurse_main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private String URLstring = "https://nursey.000webhostapp.com/api/getallclient.php?status=1&id=";
+    String deactivateURL = "https://nursey.000webhostapp.com/api/deactivate-nurse.php";
     PreferenceUtils utils = new PreferenceUtils();
     boolean doubleBackToExitPressedOnce = false;
+
+    boolean doubleclicktodeactivate = false;
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     private  int tid;
@@ -297,7 +302,76 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                 }
             }, 1000);
 
+        }else if (id == R.id.client_deactivate) {
+            Toast.makeText(nurse_main.this, "double press to deactivate", Toast.LENGTH_LONG).show();
+            if(doubleclicktodeactivate){
+                showSimpleProgressDialog(nurse_main.this, "Loading...","Deactivating",false);
+
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, deactivateURL,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String ServerResponse) {
+
+                                // Hiding the progress dialog after all task complete.
+                                removeSimpleProgressDialog();
+
+                                // Showing response message coming from server.
+                                Toast.makeText(nurse_main.this, ServerResponse, Toast.LENGTH_LONG).show();
+                                PreferenceUtils.saveEmail("", nurse_main.this);
+                                PreferenceUtils.saveType("", nurse_main.this);
+                                PreferenceUtils.saveID(0, nurse_main.this);
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        nurse_main.this.finish();
+                                    }
+                                }, 3000);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+
+                                // Hiding the progress dialog after all task complete.
+                                removeSimpleProgressDialog();
+
+                                // Showing error message if something goes wrong.
+                                Toast.makeText(nurse_main.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                            }
+                        }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+
+                        // Creating Map String Params.
+                        Map<String, String> params = new HashMap<String, String>();
+                        final String emails=utils.getEmail(nurse_main.this);
+                        // Adding All values to Params.
+                        params.put("email", emails);
+
+                        return params;
+                    }
+
+                };
+
+                // Creating RequestQueue.
+                RequestQueue requestQueue = Volley.newRequestQueue(nurse_main.this);
+
+                // Adding the StringRequest object into requestQueue.
+                requestQueue.add(stringRequest);
+            }
+            doubleclicktodeactivate=true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleclicktodeactivate=false;
+                }
+            }, 3000);
+
+
         }
+
 
 
 

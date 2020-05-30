@@ -22,6 +22,10 @@
                 android:id="@+id/client_logout"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Logout" />
+            <item
+                android:id="@+id/client_deactivate"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Deactivate" />
         </menu>
     </item>
 

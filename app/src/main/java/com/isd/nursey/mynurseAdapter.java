@@ -66,13 +66,13 @@ public class mynurseAdapter extends BaseAdapter {
 
             holder.name = (TextView) convertView.findViewById(R.id.mynursename);
             holder.interval = (TextView) convertView.findViewById(R.id.mynursetime);
-            holder.number = (TextView) convertView.findViewById(R.id.mynursenumber);
+
             convertView.setTag(holder);
         }else holder = (mynurseAdapter.ViewHolder) convertView.getTag();
 
 
         holder.name.setText(dataModelArrayList.get(position).getName());
-        holder.number.setText("+961"+dataModelArrayList.get(position).getPhone_number());
+
         holder.interval.setText(dataModelArrayList.get(position).getDay()+"    "+dataModelArrayList.get(position).gettimeInterval());
 
 
@@ -82,7 +82,7 @@ public class mynurseAdapter extends BaseAdapter {
 
     private class ViewHolder {
 
-        protected TextView  name,interval,number;
+        protected TextView  name,interval;
 
     }
 

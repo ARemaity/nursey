@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client_nurse_req_profile">
+    tools:context=".client_nurse_accepted_profile">
 
     <LinearLayout
         android:id="@+id/maincontainer"
@@ -44,7 +44,7 @@
 
 
             <TextView
-                android:id="@+id/clientreqnursename"
+                android:id="@+id/mysnursenursename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Christy Fred"
@@ -54,7 +54,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/clientreqnursetype"
+            android:id="@+id/mysnursetype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -78,7 +78,7 @@
                 app:srcCompat="@drawable/contacts" />
 
             <TextView
-                android:id="@+id/clientreqnursegender"
+                android:id="@+id/mysnursegender"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -105,7 +105,7 @@
                 app:srcCompat="@drawable/age" />
 
             <TextView
-                android:id="@+id/clientreqnurseage"
+                android:id="@+id/mysnurseage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
@@ -131,7 +131,7 @@
                 app:srcCompat="@drawable/home" />
 
             <TextView
-                android:id="@+id/clientreqnurseaddress"
+                android:id="@+id/mysnurseaddress"
                 android:layout_width="304dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -157,7 +157,7 @@
                 app:srcCompat="@drawable/letter" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/mysnurseemail"
                 android:layout_width="304dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -183,7 +183,7 @@
                 app:srcCompat="@drawable/salary" />
 
             <TextView
-                android:id="@+id/clientreqnursetime"
+                android:id="@+id/mysnursetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.8"
@@ -209,7 +209,7 @@
                 app:srcCompat="@drawable/cv" />
 
             <Button
-                android:id="@+id/clientreqnursecv"
+                android:id="@+id/mysnursecv"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
@@ -236,7 +236,7 @@
                 app:srcCompat="@drawable/fb" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/mysnurseaddfeedback"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
@@ -254,7 +254,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/mysnursecontact"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_weight="0.3"
@@ -265,7 +265,7 @@
                 android:textColor="#FFFCFCFE"/>
 
             <Button
-                android:id="@+id/nurseClientdltBtn"
+                android:id="@+id/mysnursedltBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_marginEnd="20dp"

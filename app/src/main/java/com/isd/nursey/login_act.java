@@ -114,6 +114,21 @@ if(part1.equals("2")){
     PreferenceUtils.saveID(idclient, login_act.this);
     Intent intent = new Intent(login_act.this, nurse_main.class);
     startActivity(intent);
+} else if(part1.equals("3")){
+    //Toast.makeText(login_act.this, "email or password is incorrect ", Toast.LENGTH_LONG).show();
+    Toast.makeText(login_act.this, "Your account is Deactivated", Toast.LENGTH_LONG).show();
+
+    emailEdittext.setText("");
+    passwordEdittext.setText("");
+                    }
+
+
+else if(part1.equals("4")){
+    //Toast.makeText(login_act.this, "email or password is incorrect ", Toast.LENGTH_LONG).show();
+    Toast.makeText(login_act.this, "Wrong email or password", Toast.LENGTH_LONG).show();
+
+    emailEdittext.setText("");
+    passwordEdittext.setText("");
 }else{
 
     //Toast.makeText(login_act.this, "email or password is incorrect ", Toast.LENGTH_LONG).show();

@@ -35,7 +35,9 @@ public class client_mynursesList extends AppCompatActivity {
     private static ProgressDialog mProgressDialog;
     private ListView listView;
     ArrayList<nurseModel> dataModelArrayList;
-    private int nid;
+     int nid,tid,phone;
+    String name,address,domain,gender,email,rangetime,age;
+
     private ListAdapter listAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +50,28 @@ public class client_mynursesList extends AppCompatActivity {
 
             public void onItemClick(AdapterView<?> a, View v, int position,
                                     long id) {
-
-                nid= dataModelArrayList.get(position).getNID();
-                Intent myIntent = new Intent(client_mynursesList.this, client_nurse_feedback.class);
+                name=dataModelArrayList.get(position).getName();
+                address=dataModelArrayList.get(position).getAddress();
+                domain=dataModelArrayList.get(position).getDomain();
+                name=dataModelArrayList.get(position).getName();
+                gender= dataModelArrayList.get(position).getGender();
+                nid=dataModelArrayList.get(position).getNID();
+                tid=dataModelArrayList.get(position).getTID();
+                phone=dataModelArrayList.get(position).getPhone_number();
+                age=dataModelArrayList.get(position).getAge();
+                email=dataModelArrayList.get(position).getEmail();
+                rangetime=dataModelArrayList.get(position).getDay()+"    "+dataModelArrayList.get(position).gettimeInterval();
+                Intent myIntent = new Intent(client_mynursesList.this, client_nurse_accepted_profile.class);
+                myIntent.putExtra("name", name);
+                myIntent.putExtra("address", address);
+                myIntent.putExtra("domain", domain);
+                myIntent.putExtra("gender", gender);
+                myIntent.putExtra("email", email);
+                myIntent.putExtra("rangetime", rangetime);
+                myIntent.putExtra("age", age);
                 myIntent.putExtra("nid", nid);
+                myIntent.putExtra("tid", tid);
+                myIntent.putExtra("phone", phone);
                 startActivity(myIntent);
             }
         });
@@ -92,9 +112,12 @@ public class client_mynursesList extends AppCompatActivity {
                                     x.setPhone_number(Integer.parseInt(dataobj.getString("phone_number")));
                                     x.setEmail(dataobj.getString("email"));
                                     x.setDob(dataobj.getString("dob"));
-                                    x.setDob(dataobj.getString("domain"));
+
+                                    x.setDomain(dataobj.getString("domain"));
                                     x.setGender(dataobj.getString("gender"));
                                     x.setTime(Integer.parseInt(dataobj.getString(("time"))));
+                                    x.setTID(Integer.parseInt(dataobj.getString(("TID"))));
+                                    x.setNID(Integer.parseInt(dataobj.getString(("NID"))));
                                     x.setDay(dataobj.getString("day"));
                                     x.setAddress(dataobj.getString("address"));
                                     x.setNumberofHour(Integer.parseInt(dataobj.getString("nbhour")));

@@ -1,6 +1,8 @@
 package com.isd.nursey;
 
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.isd.nursey.utils.PreferenceUtils;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
@@ -26,9 +35,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class client_main extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener,TimePickerDialog.OnTimeSetListener  {
+    String deactivateURL = "https://nursey.000webhostapp.com/api/deactivate-client.php";
 
+    private static ProgressDialog mProgressDialog;
+    RequestQueue requestQueue;
 Spinner days,citys,domains,genders;
 String dayx="all",cityx="all",domainx="all",genderx="all",hourx="all";
 Button searchbtn,hourbtn;
@@ -70,6 +84,7 @@ Button searchbtn,hourbtn;
     };
     PreferenceUtils utils = new PreferenceUtils();
     boolean doubleBackToExitPressedOnce = false;
+    boolean doubleclicktodeactivate = false;
     Calendar calendar ;
     TimePickerDialog timePickerDialog ;
     int CalendarHour, CalendarMinute;
@@ -96,6 +111,9 @@ Button searchbtn,hourbtn;
         domains.setAdapter(domainAdapter);
         citys.setAdapter(cityAdapter);
         genders.setAdapter(genderAdapter);
+//get email from shared
+
+
 
 
         days.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -463,7 +481,76 @@ Button searchbtn,hourbtn;
                 }
             }, 1000);
 
+        } else if (id == R.id.client_deactivate) {
+        Toast.makeText(client_main.this, "double press to deactivate", Toast.LENGTH_LONG).show();
+       if(doubleclicktodeactivate){
+           showSimpleProgressDialog(client_main.this, "Loading...","Deactivating",false);
+
+
+           StringRequest stringRequest = new StringRequest(Request.Method.POST, deactivateURL,
+                   new Response.Listener<String>() {
+                       @Override
+                       public void onResponse(String ServerResponse) {
+
+                           // Hiding the progress dialog after all task complete.
+                         removeSimpleProgressDialog();
+
+                           // Showing response message coming from server.
+                           Toast.makeText(client_main.this, ServerResponse, Toast.LENGTH_LONG).show();
+                           PreferenceUtils.saveEmail("", client_main.this);
+                           PreferenceUtils.saveType("", client_main.this);
+                           PreferenceUtils.saveID(0, client_main.this);
+                           new Handler().postDelayed(new Runnable() {
+                               @Override
+                               public void run() {
+                                   client_main.this.finish();
+                               }
+                           }, 3000);
+                       }
+                   },
+                   new Response.ErrorListener() {
+                       @Override
+                       public void onErrorResponse(VolleyError volleyError) {
+
+                           // Hiding the progress dialog after all task complete.
+                           removeSimpleProgressDialog();
+
+                           // Showing error message if something goes wrong.
+                           Toast.makeText(client_main.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                       }
+                   }) {
+               @Override
+               protected Map<String, String> getParams() {
+
+                   // Creating Map String Params.
+                   Map<String, String> params = new HashMap<String, String>();
+                   final String emails=utils.getEmail(client_main.this);
+                   // Adding All values to Params.
+                   params.put("email", emails);
+
+                   return params;
+               }
+
+           };
+
+           // Creating RequestQueue.
+           RequestQueue requestQueue = Volley.newRequestQueue(client_main.this);
+
+           // Adding the StringRequest object into requestQueue.
+           requestQueue.add(stringRequest);
+       }
+            doubleclicktodeactivate=true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleclicktodeactivate=false;
+                }
+            }, 3000);
+
+
         }
+
 
 
 
@@ -482,5 +569,42 @@ Button searchbtn,hourbtn;
 
 
     }
+    public static void showSimpleProgressDialog(Context context, String title,
+                                                String msg, boolean isCancelable) {
+        try {
+            if (mProgressDialog == null) {
+                mProgressDialog = ProgressDialog.show(context, title, msg);
+                mProgressDialog.setCancelable(isCancelable);
+            }
 
+            if (!mProgressDialog.isShowing()) {
+                mProgressDialog.show();
+            }
+
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void removeSimpleProgressDialog() {
+        try {
+            if (mProgressDialog != null) {
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                    mProgressDialog = null;
+                }
+            }
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
+
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

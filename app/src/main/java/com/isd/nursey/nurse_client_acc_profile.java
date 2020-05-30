@@ -1,10 +1,13 @@
 package com.isd.nursey;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,11 +30,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.Manifest.permission.CALL_PHONE;
+
 public class nurse_client_acc_profile extends AppCompatActivity {
 TextView fname,address,phone,email,pname,pcase,time;
     private String URLstring = "https://nursey.000webhostapp.com/api/getclient.php?tid=";
     private static ProgressDialog mProgressDialog;
-    Button delete;
+    Button delete,contact;
     private int TID;
     private  String interval;
     String deleteURL = "https://nursey.000webhostapp.com/api/delete-client.php";
@@ -49,6 +54,7 @@ TextView fname,address,phone,email,pname,pcase,time;
         pcase=findViewById(R.id.nurseClientProfilepdetails);
         time=findViewById(R.id.nurseClientProfilehour);
         delete=findViewById(R.id.nurseClientdltBtn);
+        contact=findViewById(R.id.contactclient);
         Intent mIntent = getIntent();
         TID = mIntent.getIntExtra("tid",0);
        setURLstring(TID);
@@ -56,8 +62,8 @@ TextView fname,address,phone,email,pname,pcase,time;
 
         retrieveJSON();
         delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
 
 
                 showSimpleProgressDialog(nurse_client_acc_profile.this, "Loading...","Please wait",false);
@@ -107,7 +113,21 @@ TextView fname,address,phone,email,pname,pcase,time;
 
 
         });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_CALL);
 
+                i.setData(Uri.parse("tel:"+phone.getText().toString()));
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(i);
+                } else {
+                    requestPermissions(new String[]{CALL_PHONE}, 1);
+                }
+            }
+
+        });
 
 
 

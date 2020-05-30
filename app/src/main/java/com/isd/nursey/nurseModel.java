@@ -1,11 +1,13 @@
 package com.isd.nursey;
 
+import android.util.Log;
+
 import java.time.LocalDate;
 import java.time.Period;
 
 public class nurseModel {
     private String fname;
-
+    private int TID;
     private String lname;
     private String dob;
     private   String address;
@@ -129,6 +131,7 @@ public String getName(){
     }
 
     public  String getAge(){
+        Log.d("ssssssssssssssssss age",this.dob);
         String [] partsts= this.dob.split("-");
         int day=Integer.parseInt(partsts[2]);
         int month=Integer.parseInt(partsts[1]);
@@ -147,6 +150,14 @@ public String getName(){
 
     public String getEmail() {
         return email;
+    }
+
+    public int getTID() {
+        return TID;
+    }
+
+    public void setTID(int TID) {
+        this.TID = TID;
     }
 
     public void setEmail(String email) {

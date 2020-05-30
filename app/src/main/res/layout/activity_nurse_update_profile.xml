@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".nurse_update_profile">
+
     <WebView
-        android:id="@+id/webview"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    android:id="@+id/webview"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
 </RelativeLayout>

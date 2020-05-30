@@ -140,7 +140,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
                                 params.put("sid", Integer.toString(sid));
                                 params.put("cid", Integer.toString(ids));
                                 params.put("time", Integer.toString(clienthour));
-                                params.put("nbo bfhour", finalnbhour);
+                                params.put("nbofhour", finalnbhour);
                                 return params;
                             }
 
