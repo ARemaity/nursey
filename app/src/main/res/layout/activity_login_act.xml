@@ -31,58 +31,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="E-mail"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:hint="Email"
+            android:hint="aaa@g.com"
             android:imeOptions="actionNext"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="10sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="Password"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/passwordLogin"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:hint="Password"
             android:inputType="textPassword"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="20dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/loginbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="20dp"
-            android:background="@color/colorAccent"
+            android:layout_marginStart="130dp"
+            android:background="@drawable/roundbutton"
             android:text="Login"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="40dp"
             android:onClick="showpopup"
             android:text="No Account ? Create One"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:onClick="showpopup"
+            android:text="Forget Password ? "
             android:textAlignment="center" />
     </LinearLayout>
 

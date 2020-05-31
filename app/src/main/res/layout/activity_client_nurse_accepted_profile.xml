@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     tools:context=".client_nurse_accepted_profile">
 
     <LinearLayout
@@ -13,20 +14,10 @@
         android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:text="My Nurse"
-            android:textAlignment="center"
-            android:background="@color/colorAccent"
-            android:textColor="#FFFCFCFE"
-            android:textSize="24sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical">
 
             <ImageView
@@ -66,7 +57,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="40dp">
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -177,7 +168,7 @@
                 android:id="@+id/imageView10"
                 android:layout_width="69dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/salary" />
@@ -214,7 +205,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
                 android:layout_weight="0.8"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:text="View CV"
                 android:textColor="#FFFCFCFE" />
 
@@ -241,7 +232,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
                 android:layout_weight="0.8"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:text="Add Feedback"
                 android:textColor="#FFFCFCFE" />
 
@@ -250,27 +241,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/mysnursecontact"
-                android:layout_width="wrap_content"
+                android:layout_width="25dp"
                 android:layout_height="31dp"
-                android:layout_weight="0.3"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="40dp"
+                android:layout_weight="0.3"
+                android:background="@drawable/roundbutton"
                 android:text="Contact"
-                android:background="@color/colorAccent"
-                android:textColor="#FFFCFCFE"/>
+                android:textColor="#FFFCFCFE" />
 
             <Button
                 android:id="@+id/mysnursedltBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="44dp"
                 android:layout_height="31dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="0.3"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:text="Remove"
                 android:textColor="#FFFCFCFE" />
 

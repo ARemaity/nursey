@@ -60,22 +60,29 @@ Button searchbtn,hourbtn;
     String[] cityArray = new String[]{
 "All",
             "Beirut",
+            "Saida",
+            "Sour",
             "Tripoli",
-            "Sidon",
+            "Byblos",
+            "Baalbek",
             "Nabatiye",
             "Habbouch",
             "Jounieh",
             "Zahle",
-            "Ghazieh"
+            "Aley",
+            "Chouf"
     };
     String[] domainArray = new String[]{
             "All",
             "Elderly Care",
             "Child Care",
-            "Post Labor Care",
+            "Maternity Care",
             "New Born Care",
-            "Post Surgery Care",
-            "Post Surgery Care"
+            "Recovery Phase Care",
+            "Physiotherapy",
+            "Check-up"
+
+
     };
     String[] genderArray = new String[]{
             "All",

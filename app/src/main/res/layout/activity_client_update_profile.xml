@@ -4,29 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     tools:context=".client_update_profile">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#021C5A"
-                android:text="Update Patient Details"
-                android:textAlignment="center"
-                android:textColor="#FFF2F2F7"
-                android:textSize="24sp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,9 +37,11 @@
                 android:layout_width="38dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
+                android:background="@drawable/roundcorners"
                 android:layout_weight="1.3" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="98dp"
@@ -81,6 +67,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/roundcorners"
                 android:layout_weight="1.3"
                 android:imeOptions="actionNext"></EditText>
         </LinearLayout>
@@ -93,11 +80,10 @@
 
                 android:id="@+id/updatepdetails"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:padding="5dp"
                 android:text="Submit"
                 android:textAlignment="center"

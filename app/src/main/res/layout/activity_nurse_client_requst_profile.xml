@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     tools:context=".nurse_client_requst_profile">
 
 
@@ -12,18 +13,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@color/colorAccent" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +48,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:text="Beirut"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
 
@@ -67,7 +56,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -83,14 +72,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:text="03456789"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -106,7 +95,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:text="email"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -114,7 +103,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -130,7 +119,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:text=" Patient: Me "
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -139,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="30dp">
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -154,7 +143,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:text="Time"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -162,7 +151,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -170,6 +159,7 @@
                     android:layout_width="227dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
+                    android:layout_marginStart="10dp"
                     android:text="Patient Case"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorAccent"
@@ -181,28 +171,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="110dp"
+                android:layout_marginTop="80dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/acceptbtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="28dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="40dp"
                     android:layout_weight="0.3"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/roundbutton"
                     android:text="Accept"
                     android:textColor="#FFFCFCFE" />
 
                 <Button
                     android:id="@+id/deletebtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="0.3"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/roundbutton"
                     android:text="Decline"
                     android:textColor="#FFFCFCFE" />
             </LinearLayout>
