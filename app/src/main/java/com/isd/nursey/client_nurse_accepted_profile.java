@@ -11,8 +11,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -25,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.isd.nursey.utils.PreferenceUtils;
 
 import org.json.JSONArray;
@@ -42,10 +45,12 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
     PreferenceUtils utils = new PreferenceUtils();
     TextView name,address,type,gender,age,time,email;
     EditText nbofhour;
+    ImageView profile;
     String finalnbhour;
     ProgressDialog progress;
     RequestQueue requestQueue;
     String deleteURL = "https://nursey.000webhostapp.com/api/delete-client.php";
+    private String imgURL = "http://nursey.000webhostapp.com/uploads/image-";
     private static ProgressDialog mProgressDialog;
     public int nurseid;
     Button cvbtn,callbtn,addfeedback,deletenurse;
@@ -58,6 +63,7 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_nurse_accepted_profile);
         final int ids=utils.getID(client_nurse_accepted_profile.this);
+        imgURL=imgURL+ids+".jpg";
         name=findViewById(R.id.mysnursenursename);
         address=findViewById(R.id.mysnurseaddress);
         type=findViewById(R.id.mysnursetype);
@@ -70,6 +76,10 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         addfeedback=findViewById(R.id.mysnurseaddfeedback);
         nbofhour=findViewById(R.id.clientnbofhour);
         callbtn=findViewById(R.id.mysnursecontact);
+        profile=findViewById(R.id.clientaccimage);
+        if(URLUtil.isValidUrl(imgURL)){
+            Glide.with(this).load(imgURL).into(profile);
+        }
         Intent mIntent = getIntent();
         nids = mIntent.getIntExtra("nid",0);
         tids = mIntent.getIntExtra("tid",0);

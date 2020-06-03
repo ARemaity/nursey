@@ -182,6 +182,9 @@ public class client_own_profile extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        if(utils.getID(client_own_profile.this)==0){
+            client_own_profile.this.finish();
+        }
         retrieveJSON();
     }
 }

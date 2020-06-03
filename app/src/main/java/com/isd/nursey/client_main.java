@@ -614,4 +614,12 @@ Button searchbtn,hourbtn;
         }
 
     }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(utils.getID(client_main.this)==0){
+            client_main.this.finish();
+        }
+
+    }
 }

@@ -9,7 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.isd.nursey.utils.PreferenceUtils;
 
 import org.json.JSONArray;
@@ -30,13 +33,16 @@ public class nurse_own_profile extends AppCompatActivity {
     nurseModel nm;
 TextView name,email,address,type,phone,gender,age;
 private String URLstring = "http://nursey.000webhostapp.com/api/getnurse.php?nid=";
+    private String imgURL = "http://nursey.000webhostapp.com/uploads/image-";
     private static ProgressDialog mProgressDialog;
 Button cvbtn,schbtn,updatebtn;
+ImageView profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_own_profile);
         final int ids=utils.getID(nurse_own_profile.this);
+        imgURL=imgURL+ids+".jpg";
         name=findViewById(R.id.nurseownname);
         email=findViewById(R.id.nurseownemail);
         address=findViewById(R.id.nurseownaddress);
@@ -47,6 +53,12 @@ Button cvbtn,schbtn,updatebtn;
         cvbtn=findViewById(R.id.nurseowncv);
         schbtn=findViewById(R.id.nurseownschd);
         updatebtn=findViewById(R.id.updatenursebtn);
+        profile=findViewById(R.id.nurseownimg);
+        if(URLUtil.isValidUrl(imgURL)){
+            Glide.with(this).load(imgURL).into(profile);
+        }
+
+
         setURLstring(ids);
         retrieveJSON();
         cvbtn.setOnClickListener(new View.OnClickListener() {

@@ -29,8 +29,8 @@ public class client_update_profile extends AppCompatActivity {
     ProgressDialog progress;
     RequestQueue requestQueue;
     PreferenceUtils utils = new PreferenceUtils();
-    EditText pname,pcase;
-    String rpname,rpcase;
+    EditText cname,caddress,cnum,cpass,cspass,pname,pcase;
+    String rname,raddress,rnum,rpass,rpname,rpcase;
     Button updatep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,81 +39,105 @@ public class client_update_profile extends AppCompatActivity {
         pname=findViewById(R.id.updatepatientname);
         updatep=findViewById(R.id.updatepdetails);
         pcase=findViewById(R.id.updatecasedetail);
+        cname=findViewById(R.id.updateclientname);
+        caddress=findViewById(R.id.updateclientaddress);
+        cnum=findViewById(R.id.updateclientnum);
+        cpass=findViewById(R.id.updateclientfpass);
+        cspass=findViewById(R.id.updateclientspass);
         progress = new ProgressDialog(client_update_profile.this);
         final int cid=utils.getID(client_update_profile.this);
-
+        final String cemail=utils.getEmail(client_update_profile.this);
         updatep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(checkif(pname)||checkif(pcase)){
+                if(checkif(cname)||checkif(caddress)||checkif(caddress)||checkif(cnum)||checkif(cpass)||checkif(cspass)||checkif(pname)||checkif(pcase)){
 
                     Toast.makeText(client_update_profile.this,"Please enter All details", Toast.LENGTH_LONG).show();
 
 
-                }else{
+                }else {
+                    if(validatePassword()) {
+
+                        rname = cname.getText().toString();
+                        raddress = caddress.getText().toString();
+                        rnum = cnum.getText().toString();
+                        rpass = cpass.getText().toString();
+                        rpname = pname.getText().toString();
+                        rpcase = pcase.getText().toString();
 
 
 
-
-                            rpname = pname.getText().toString();
-                            rpcase = pcase.getText().toString();
-
-                            progress.setMessage("Please Wait, Server is Working :)");
-                            progress.show();
+                    progress.setMessage("Please Wait, Server is Working :)");
+                    progress.show();
 
 
-                            StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrlpost,
-                                    new Response.Listener<String>() {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrlpost,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String ServerResponse) {
+
+                                    // Hiding the progress dialog after all task complete.
+                                    progress.dismiss();
+
+                                    // Showing response message coming from server.
+                                    Toast.makeText(client_update_profile.this, ServerResponse, Toast.LENGTH_LONG).show();
+                                    new Handler().postDelayed(new Runnable() {
                                         @Override
-                                        public void onResponse(String ServerResponse) {
-
-                                            // Hiding the progress dialog after all task complete.
-                                            progress.dismiss();
-
-                                            // Showing response message coming from server.
-                                            Toast.makeText(client_update_profile.this, ServerResponse, Toast.LENGTH_LONG).show();
+                                        public void run() {
+                                            PreferenceUtils.saveEmail("", client_update_profile.this);
+                                            PreferenceUtils.saveType("", client_update_profile.this);
+                                            PreferenceUtils.saveID(0, client_update_profile.this);
                                             new Handler().postDelayed(new Runnable() {
                                                 @Override
                                                 public void run() {
                                                     client_update_profile.this.finish();
                                                 }
-                                            }, 2000);
-                                        }
-                                    },
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError volleyError) {
-
-                                            // Hiding the progress dialog after all task complete.
-                                            progress.dismiss();
-
-                                            // Showing error message if something goes wrong.
-                                            Toast.makeText(client_update_profile.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                                            }, 1000);
 
                                         }
-                                    }) {
-                                @Override
-                                protected Map<String, String> getParams() {
-
-                                    // Creating Map String Params.
-                                    Map<String, String> params = new HashMap<String, String>();
-
-                                    params.put("cid", Integer.toString(cid));
-                                    params.put("patient_name", rpname);
-                                    params.put("case_details", rpcase);
-
-                                    return params;
+                                    }, 2000);
                                 }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError volleyError) {
 
-                            };
+                                    // Hiding the progress dialog after all task complete.
+                                    progress.dismiss();
 
-                            // Creating RequestQueue.
-                            RequestQueue requestQueue = Volley.newRequestQueue(client_update_profile.this);
+                                    // Showing error message if something goes wrong.
+                                    Toast.makeText(client_update_profile.this, volleyError.toString(), Toast.LENGTH_LONG).show();
 
-                            // Adding the StringRequest object into requestQueue.
-                            requestQueue.add(stringRequest);
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() {
 
+                            // Creating Map String Params.
+                            Map<String, String> params = new HashMap<String, String>();
+
+                            params.put("cid", Integer.toString(cid));
+                            params.put("fname", rname);
+                            params.put("address", raddress);
+                            params.put("pass", rpass);
+                            params.put("email", cemail);
+                            params.put("phone_number", rnum);
+                            params.put("patient_name", rpname);
+                            params.put("case_details", rpcase);
+
+
+                            return params;
+                        }
+
+                    };
+
+                    // Creating RequestQueue.
+                    RequestQueue requestQueue = Volley.newRequestQueue(client_update_profile.this);
+
+                    // Adding the StringRequest object into requestQueue.
+                    requestQueue.add(stringRequest);
+                }
                         }
                     }
 
@@ -131,6 +155,33 @@ public class client_update_profile extends AppCompatActivity {
         return  false;
     }
 
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{4,}" +               //at least 4 characters
+                    "$");
+
+
+    private boolean validatePassword() {
+        String passwordInput = cpass.getText().toString().trim();
+        String secondpassword = cspass.getText().toString().trim();
+        if(!passwordInput.equals(secondpassword)){
+            cspass.setError("Passwords not same");
+            cspass.setText("");
+            cpass.setText("");
+            cspass.requestFocus();
+            return false;
+        }
+        else {
+            cpass.setError(null);
+            return true;
+        }
+    }
 
 
 }

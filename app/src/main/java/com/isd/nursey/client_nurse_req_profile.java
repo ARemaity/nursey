@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -23,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.isd.nursey.utils.PreferenceUtils;
 
 import org.json.JSONArray;
@@ -40,9 +43,11 @@ public class client_nurse_req_profile extends AppCompatActivity {
     nurseModel nm;
     TextView name,address,type,gender,age,time;
     EditText nbofhour;
+    ImageView profile;
     String finalnbhour;
     private String URLstring = "http://nursey.000webhostapp.com/api/getsinglenurse.php?nid=";
     private String URLRequest = "http://nursey.000webhostapp.com/api/requestnurse.php";
+    private String imgURL = "http://nursey.000webhostapp.com/uploads/image-";
     private static ProgressDialog mProgressDialog;
     public int nurseid;
     Button cvbtn,requestbtn;
@@ -61,6 +66,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
         address=findViewById(R.id.clientreqnurseaddress);
         type=findViewById(R.id.clientreqnursetype);
         final int ids=utils.getID(client_nurse_req_profile.this);
+        imgURL=imgURL+ids+".jpg";
         age=findViewById(R.id.clientreqnurseage);
         gender=findViewById(R.id.clientreqnursegender);
         cvbtn=findViewById(R.id.clientreqnursecv);
@@ -70,6 +76,10 @@ public class client_nurse_req_profile extends AppCompatActivity {
         fl =  findViewById(R.id.feedbackcontainer);
         nbofhour=findViewById(R.id.clientnbofhour);
         listView=findViewById(R.id.clientreqnursfeedbacklist);
+        profile=findViewById(R.id.clientreqimage);
+        if(URLUtil.isValidUrl(imgURL)){
+            Glide.with(this).load(imgURL).into(profile);
+        }
         Intent mIntent = getIntent();
         nurseid = mIntent.getIntExtra("nid",0);
         sid = mIntent.getIntExtra("sid",0);
@@ -77,6 +87,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
         clienthour=mIntent.getIntExtra("clienthour", clienthour);
         timerange= mIntent.getStringExtra("timerange");
         time.setText(timerange);
+
         setURLstring(nurseid);
         retrieveJSON();
         cvbtn.setOnClickListener(new View.OnClickListener() {
