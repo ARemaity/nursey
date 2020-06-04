@@ -102,6 +102,7 @@ public class login_act extends AppCompatActivity {
 if(part1.equals("2")){
     int idnurse =Integer.parseInt(part2.trim());
     PreferenceUtils.saveEmail(semail, login_act.this);
+    PreferenceUtils.savePassword(spassword, login_act.this);
     PreferenceUtils.saveType("client", login_act.this);
     PreferenceUtils.saveID(idnurse, login_act.this);
     Intent intent = new Intent(login_act.this, client_main.class);
@@ -110,6 +111,7 @@ if(part1.equals("2")){
 }else if(part1.equals("1")){
     int idclient =Integer.parseInt(part2.trim());
     PreferenceUtils.saveEmail(semail, login_act.this);
+    PreferenceUtils.savePassword(spassword, login_act.this);
     PreferenceUtils.saveType("nurse", login_act.this);
     PreferenceUtils.saveID(idclient, login_act.this);
     Intent intent = new Intent(login_act.this, nurse_main.class);
@@ -117,7 +119,6 @@ if(part1.equals("2")){
 } else if(part1.equals("3")){
     //Toast.makeText(login_act.this, "email or password is incorrect ", Toast.LENGTH_LONG).show();
     Toast.makeText(login_act.this, "Your account is Deactivated", Toast.LENGTH_LONG).show();
-
     emailEdittext.setText("");
     passwordEdittext.setText("");
                     }

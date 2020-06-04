@@ -3,6 +3,7 @@ package com.isd.nursey;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Patterns;
@@ -31,6 +32,8 @@ public class client_update_profile extends AppCompatActivity {
     PreferenceUtils utils = new PreferenceUtils();
     EditText cname,caddress,cnum,cpass,cspass,pname,pcase;
     String rname,raddress,rnum,rpass,rpname,rpcase;
+    String iname,iaddress,ipname,ipcase;
+    int iphone;
     Button updatep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,24 @@ public class client_update_profile extends AppCompatActivity {
         cnum=findViewById(R.id.updateclientnum);
         cpass=findViewById(R.id.updateclientfpass);
         cspass=findViewById(R.id.updateclientspass);
+        Intent mIntent = getIntent();
+        iphone=mIntent.getIntExtra("phone",0);
+        iname= mIntent.getStringExtra("fname");
+        iaddress= mIntent.getStringExtra("address");
+        ipname= mIntent.getStringExtra("pname");
+        ipcase= mIntent.getStringExtra("pcase");
         progress = new ProgressDialog(client_update_profile.this);
         final int cid=utils.getID(client_update_profile.this);
         final String cemail=utils.getEmail(client_update_profile.this);
+        final String cpassword=utils.getPassword(client_update_profile.this);
+        pname.setText(ipname);
+        pcase.setText(ipcase);
+        pname.setText(iname);
+        caddress.setText(iaddress);
+        cnum.setText(Integer.toString(iphone));
+        cpass.setText(cpassword);
+        cspass.setText(cpassword);
+        cname.setText(iname);
         updatep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

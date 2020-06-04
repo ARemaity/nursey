@@ -57,8 +57,6 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
         thubt=findViewById(R.id.thupick);
         fribt=findViewById(R.id.fripick);
         satbt=findViewById(R.id.satpick);
-
-
         suned=findViewById(R.id.sunedit);
         monde=findViewById(R.id.monedit);
         sated=findViewById(R.id.satedit);

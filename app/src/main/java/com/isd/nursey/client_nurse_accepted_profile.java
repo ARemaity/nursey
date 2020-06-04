@@ -113,7 +113,7 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         addfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(client_nurse_accepted_profile.this, client_nurse_accepted_profile.class);
+                Intent myIntent = new Intent(client_nurse_accepted_profile.this, client_nurse_feedback.class);
                 myIntent.putExtra("nid", nids);
                 startActivity(myIntent);
 

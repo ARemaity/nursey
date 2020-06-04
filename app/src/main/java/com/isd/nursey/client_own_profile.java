@@ -51,8 +51,13 @@ public class client_own_profile extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(client_own_profile.this, client_update_profile.class);
-                startActivity(intent);
+                Intent myIntent = new Intent(client_own_profile.this, client_update_profile.class);
+                myIntent.putExtra("fname", fname.getText().toString());
+                myIntent.putExtra("address", address.getText().toString());
+                myIntent.putExtra("phone", Integer.parseInt(phone.getText().toString()));
+                myIntent.putExtra("pname", pname.getText().toString());
+                myIntent.putExtra("pcase", pcase.getText().toString());
+                startActivity(myIntent);
             }
         });
         setURLstring(ids);
@@ -98,12 +103,12 @@ public class client_own_profile extends AppCompatActivity {
                                     JSONObject dataobj = dataArray.getJSONObject(i);
 
 
-                                    fname.setText("name : "+dataobj.getString("fname"));
-                                    address.setText("Address: "+dataobj.getString("address"));
-                                    phone.setText("Phone number : "+dataobj.getString("phone_number"));
-                                    email.setText("Email :"+dataobj.getString("email"));
-                                    pname.setText("Patient name : "+dataobj.getString("patient_name"));
-                                    pcase.setText("Patient Case : "+dataobj.getString("case_details"));
+                                    fname.setText(dataobj.getString("fname"));
+                                    address.setText(dataobj.getString("address"));
+                                    phone.setText(dataobj.getString("phone_number"));
+                                    email.setText(dataobj.getString("email"));
+                                    pname.setText(dataobj.getString("patient_name"));
+                                    pcase.setText(dataobj.getString("case_details"));
 
                                     removeSimpleProgressDialog();
                                 }
