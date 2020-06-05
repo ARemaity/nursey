@@ -77,13 +77,13 @@ public class client_nurse_req_profile extends AppCompatActivity {
         nbofhour=findViewById(R.id.clientnbofhour);
         listView=findViewById(R.id.clientreqnursfeedbacklist);
         profile=findViewById(R.id.clientreqimage);
+
+        Intent mIntent = getIntent();
+        nurseid = mIntent.getIntExtra("nid",0);
+        imgURL=imgURL+nurseid+".jpg";
         if(URLUtil.isValidUrl(imgURL)){
             Glide.with(this).load(imgURL).into(profile);
         }
-        Intent mIntent = getIntent();
-        nurseid = mIntent.getIntExtra("nid",0);
-        nurseid = mIntent.getIntExtra("nid",0);
-        imgURL=imgURL+nurseid+".jpg";
         sid = mIntent.getIntExtra("sid",0);
         nursenbhour=mIntent.getIntExtra("nursenbhour",0);
         clienthour=mIntent.getIntExtra("clienthour", clienthour);

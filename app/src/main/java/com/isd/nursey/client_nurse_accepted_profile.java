@@ -77,12 +77,13 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         nbofhour=findViewById(R.id.clientnbofhour);
         callbtn=findViewById(R.id.mysnursecontact);
         profile=findViewById(R.id.clientaccimage);
-        if(URLUtil.isValidUrl(imgURL)){
-            Glide.with(this).load(imgURL).into(profile);
-        }
+
         Intent mIntent = getIntent();
         nids = mIntent.getIntExtra("nid",0);
         imgURL=imgURL+nids+".jpg";
+        if(URLUtil.isValidUrl(imgURL)){
+            Glide.with(this).load(imgURL).into(profile);
+        }
         tids = mIntent.getIntExtra("tid",0);
         phones=mIntent.getIntExtra("phone",0);
         names=mIntent.getStringExtra("name");
