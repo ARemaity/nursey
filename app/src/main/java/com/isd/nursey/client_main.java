@@ -533,9 +533,10 @@ Button searchbtn,hourbtn;
                    // Creating Map String Params.
                    Map<String, String> params = new HashMap<String, String>();
                    final String emails=utils.getEmail(client_main.this);
+                   final int cid = utils.getID(client_main.this);
                    // Adding All values to Params.
                    params.put("email", emails);
-
+                   params.put("cid", Integer.toString(cid));
                    return params;
                }
 

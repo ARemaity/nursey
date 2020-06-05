@@ -1,5 +1,6 @@
 package com.isd.nursey;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,9 +27,14 @@ import com.isd.nursey.utils.PreferenceUtils;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class nurse_add_schdul extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     String HttpUrlpost = "https://nursey.000webhostapp.com/api/addsch.php";
+    String URLpost = "https://nursey.000webhostapp.com/api/getsch.php?nid=";
     private static ProgressDialog mProgressDialog;
     ProgressDialog progress;
     RequestQueue requestQueue;
@@ -37,8 +43,9 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
     Button sunbt,satbt,monbt,wedbtn,tuesbt,thubt,fribt;
     String sunst="1",satst="1",monst="1",wedst="1",tuesst="1",thust="1",frist="1";
     String sunx,satx,monx,wedx,tuesx,thux,frix;
+    String jtime,jday,javahour;
     int i;
-    Button submitsc;
+    Button submitsc,resetbtns;
 
     Calendar calendar ;
     TimePickerDialog timePickerDialog ;
@@ -48,6 +55,7 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nurse_add_schdul);
         submitsc=findViewById(R.id.submitsch);
+        resetbtns=findViewById(R.id.resetbtn);
 
         final int ids=utils.getID(nurse_add_schdul.this);
         sunbt=findViewById(R.id.sunpick);
@@ -66,92 +74,159 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
         thured=findViewById(R.id.thuedit);
 
 
+setURLstring(ids);
+
+        retrieveJSON();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         calendar = Calendar.getInstance();
         progress = new ProgressDialog(nurse_add_schdul.this);
         submitsc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkif(sunst) && checkif(satst) && checkif(monst) && checkif(wedst) && checkif(tuesst) && checkif(thust) && checkif(frist)) {
+
+
+                    Toast.makeText(nurse_add_schdul.this, "Please Enter at least one day", Toast.LENGTH_LONG).show();
+
+
+                } else {
+                    if (!checkifava(frist,fried) || !checkifava(sunst,suned) || !checkifava(satst,sated) ||!checkifava(monst,monde) || !checkifava(wedst,weded) ||!checkifava(tuesst,tuesde) || !checkifava(thust,thured)) {
+
+                    }else{
+                    sunx = suned.getText().toString();
+                    monx = monde.getText().toString();
+                    tuesx = tuesde.getText().toString();
+                    wedx = weded.getText().toString();
+                    thux = thured.getText().toString();
+                    frix = fried.getText().toString();
+                    satx = sated.getText().toString();
+
+                    progress.setMessage("Please Wait, Server is Working :)");
+                    progress.show();
+
+
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrlpost,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String ServerResponse) {
+
+                                    // Hiding the progress dialog after all task complete.
+                                    progress.dismiss();
+
+                                    // Showing response message coming from server.
+                                    Toast.makeText(nurse_add_schdul.this, ServerResponse, Toast.LENGTH_LONG).show();
+                                    new Handler().postDelayed(new Runnable() {
                                         @Override
-                                        public void onClick(View view) {
-
-                                            sunx = suned.getText().toString();
-                                            monx = monde.getText().toString();
-                                            tuesx = tuesde.getText().toString();
-                                            wedx = weded.getText().toString();
-                                            thux = thured.getText().toString();
-                                            frix = fried.getText().toString();
-                                            satx = sated.getText().toString();
-
-                                            progress.setMessage("Please Wait, Server is Working :)");
-                                            progress.show();
-
-
-                                            StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrlpost,
-                                                    new Response.Listener<String>() {
-                                                        @Override
-                                                        public void onResponse(String ServerResponse) {
-
-                                                            // Hiding the progress dialog after all task complete.
-                                                            progress.dismiss();
-
-                                                            // Showing response message coming from server.
-                                                            Toast.makeText(nurse_add_schdul.this, ServerResponse, Toast.LENGTH_LONG).show();
-                                                            new Handler().postDelayed(new Runnable() {
-                                                                @Override
-                                                                public void run() {
-                                                                    nurse_add_schdul.this.finish();
-                                                                }
-                                                            }, 3000);
-                                                        }
-                                                    },
-                                                    new Response.ErrorListener() {
-                                                        @Override
-                                                        public void onErrorResponse(VolleyError volleyError) {
-
-                                                            // Hiding the progress dialog after all task complete.
-                                                            progress.dismiss();
-
-                                                            // Showing error message if something goes wrong.
-                                                            Toast.makeText(nurse_add_schdul.this, volleyError.toString(), Toast.LENGTH_LONG).show();
-
-                                                        }
-                                                    }) {
-                                                @Override
-                                                protected Map<String, String> getParams() {
-
-                                                    // Creating Map String Params.
-                                                    Map<String, String> params = new HashMap<String, String>();
-
-                                                    // Adding All values to Params.
-                                                    params.put("id", Integer.toString(ids));
-                                                    params.put("sun", sunst);
-                                                    params.put("mon", monst);
-                                                    params.put("tue",tuesst);
-                                                    params.put("wed", wedst);
-                                                    params.put("thur", thust);
-                                                    params.put("fri", frist);
-                                                    params.put("sat", satst);
-                                                    params.put("sunz", sunx);
-                                                    params.put("monz", monx);
-                                                    params.put("tuez",tuesx);
-                                                    params.put("wedz", wedx);
-                                                    params.put("thurz", thux);
-                                                    params.put("friz", frix);
-                                                    params.put("satz", satx);
-                                                    params.put("submit", "submit");
-                                                    return params;
-                                                }
-
-                                            };
-
-                                            // Creating RequestQueue.
-                                            RequestQueue requestQueue = Volley.newRequestQueue(nurse_add_schdul.this);
-
-                                            // Adding the StringRequest object into requestQueue.
-                                            requestQueue.add(stringRequest);
-
+                                        public void run() {
+                                            nurse_add_schdul.this.finish();
                                         }
+                                    }, 3000);
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError volleyError) {
 
+                                    // Hiding the progress dialog after all task complete.
+                                    progress.dismiss();
+
+                                    // Showing error message if something goes wrong.
+                                    Toast.makeText(nurse_add_schdul.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+
+                                }
+                            }) {
+                        @Override
+                        protected Map<String, String> getParams() {
+
+                            // Creating Map String Params.
+                            Map<String, String> params = new HashMap<String, String>();
+
+                            // Adding All values to Params.
+                            params.put("id", Integer.toString(ids));
+                            params.put("sun", sunst);
+                            params.put("mon", monst);
+                            params.put("tue", tuesst);
+                            params.put("wed", wedst);
+                            params.put("thur", thust);
+                            params.put("fri", frist);
+                            params.put("sat", satst);
+                            params.put("sunz", sunx);
+                            params.put("monz", monx);
+                            params.put("tuez", tuesx);
+                            params.put("wedz", wedx);
+                            params.put("thurz", thux);
+                            params.put("friz", frix);
+                            params.put("satz", satx);
+                            params.put("submit", "submit");
+                            return params;
+                        }
+
+                    };
+
+                    // Creating RequestQueue.
+                    RequestQueue requestQueue = Volley.newRequestQueue(nurse_add_schdul.this);
+
+                    // Adding the StringRequest object into requestQueue.
+                    requestQueue.add(stringRequest);
+
+                }
+            }
+        }
                                     });
+
+        resetbtns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                retrieveJSON();
+
+//                sunst="1";satst="1";monst="1";wedst="1";tuesst="1";thust="1";frist="1";
+//
+//                        sunbt.setText("Time");
+//                        satbt.setText("Time");
+//                        monbt.setText("Time");
+//                        wedbtn.setText("Time");
+//                        tuesbt.setText("Time");
+//                        thubt.setText("Time");
+//                        fribt.setText("Time");
+//
+//
+//                        suned.setText("");sated.setText("");monde.setText("");weded.setText("");tuesde.setText("");thured.setText("");fried.setText("");
+//                suned.setEnabled(false);sated.setEnabled(false);monde.setEnabled(false);weded.setEnabled(false);tuesde.setEnabled(false);thured.setEnabled(false);fried.setEnabled(false);
+
+            }
+        });
+
+
         sunbt.setOnClickListener(new View.OnClickListener()
 
         {
@@ -423,7 +498,205 @@ public class nurse_add_schdul extends AppCompatActivity implements TimePickerDia
     }
 
 
+    private void retrieveJSON() {
+
+        showSimpleProgressDialog(nurse_add_schdul.this, "Loading...","Please wait",false);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLpost ,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.d("strrrrr", ">>" + response);
 
 
+
+                        try {
+
+
+                            JSONObject ex =new JSONObject(response);
+                            int theredata=Integer.parseInt(ex.getString("exsit"));
+                            if(theredata==1) {
+                                showSimpleProgressDialog(nurse_add_schdul.this, "Loading...","Please wait",false);
+                                JSONObject obj = new JSONObject(response);
+
+
+
+                                JSONArray dataArray = obj.getJSONArray("data");
+
+                                for (int i = 0; i < dataArray.length(); i++) {
+
+
+                                    JSONObject dataobj = dataArray.getJSONObject(i);
+                                    jday=dataobj.getString("day");
+                                    javahour=dataobj.getString("available_time");
+                                    jtime=dataobj.getString("time");
+                                    switch(jday)
+                                    {
+
+                                        case "sun" :
+
+                                            sunbt.setText(jtime+":00");
+                                            suned.setEnabled(true);
+                                            suned.setText(javahour);
+
+                                            break; // break is optional
+
+                                        case "mon" :
+
+                                            monbt.setText(jtime+":00");
+                                            monde.setEnabled(true);
+                                            monde.setText(javahour);
+                                            break; // break is optional
+
+                                        // values must be of same type of expression
+                                        case "tue" :
+
+                                            tuesbt.setText(jtime+":00");
+                                            tuesde.setEnabled(true);
+                                            tuesde.setText(javahour);
+                                            break; // break is optional
+
+                                        case "wed":
+
+                                            wedbtn.setText(jtime+":00");
+                                            weded.setEnabled(true);
+                                            weded.setText(javahour);
+                                            break; // break is optional
+
+                                        case "thu" :
+
+                                            thubt.setText(jtime+":00");
+                                            thured.setEnabled(true);
+                                            thured.setText(javahour);
+                                            break; // break is optional
+
+                                        case "fri" :
+
+                                            fribt.setText(jtime+":00");
+                                            fried.setEnabled(true);
+                                            fried.setText(javahour);
+
+                                            break;
+                                        case "sat" :
+
+                                            satbt.setText(jtime+":00");
+                                            sated.setEnabled(true);
+                                            sated.setText(javahour);
+
+                                            break;
+                                        default :
+                                            sunbt.setText(jtime+":00");
+                                            suned.setEnabled(true);
+                                            suned.setText(javahour);
+
+
+                                    }
+
+
+//
+
+                                    removeSimpleProgressDialog();
+                                }
+
+
+
+                            }else{
+
+
+
+                                removeSimpleProgressDialog();
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //displaying the error in toast if occurrs
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        // request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        requestQueue.add(stringRequest);
+
+
+    }
+
+
+    public static void removeSimpleProgressDialog() {
+        try {
+            if (mProgressDialog != null) {
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                    mProgressDialog = null;
+                }
+            }
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
+
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void showSimpleProgressDialog(Context context, String title,
+                                                String msg, boolean isCancelable) {
+        try {
+            if (mProgressDialog == null) {
+                mProgressDialog = ProgressDialog.show(context, title, msg);
+                mProgressDialog.setCancelable(isCancelable);
+            }
+
+            if (!mProgressDialog.isShowing()) {
+                mProgressDialog.show();
+            }
+
+        } catch (IllegalArgumentException ie) {
+            ie.printStackTrace();
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void setURLstring(int id) {
+        this.URLpost+=id;
+    }
+    public boolean checkif(String inputs){
+
+
+        if (inputs.equals("1")) {
+            return  true;
+        }
+        return  false;
+    }
+    public boolean checkifava(String dayvar,EditText ava){
+
+        String availablehourinput = ava.getText().toString().trim();
+        if (dayvar.equals("1")) {
+            return  true;
+        }else{
+            if (availablehourinput.isEmpty()) {
+                ava.setError("Field can't be empty");
+                ava.setText("");
+                ava.requestFocus();
+                return false;
+            }else{
+                return  true;
+            }
+        }
+
+    }
 
 }

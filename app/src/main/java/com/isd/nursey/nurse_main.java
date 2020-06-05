@@ -302,7 +302,7 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                 }
             }, 1000);
 
-        }else if (id == R.id.client_deactivate) {
+        }else if (id == R.id.nurse_deactivate) {
             Toast.makeText(nurse_main.this, "double press to deactivate", Toast.LENGTH_LONG).show();
             if(doubleclicktodeactivate){
                 showSimpleProgressDialog(nurse_main.this, "Loading...","Deactivating",false);
@@ -347,9 +347,10 @@ public class nurse_main extends AppCompatActivity implements NavigationView.OnNa
                         // Creating Map String Params.
                         Map<String, String> params = new HashMap<String, String>();
                         final String emails=utils.getEmail(nurse_main.this);
+                        final int nid = utils.getID(nurse_main.this);
                         // Adding All values to Params.
                         params.put("email", emails);
-
+                        params.put("nid", Integer.toString(nid));
                         return params;
                     }
 
