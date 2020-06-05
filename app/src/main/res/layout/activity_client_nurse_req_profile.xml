@@ -179,9 +179,42 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="50dp"
                 android:layout_weight="0.8"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:text="View CV"
                 android:textColor="#FFFCFCFE" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <TextView
+                android:layout_width="134dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Number of hours needed"
+
+                android:textColor="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent" />
+
+            <EditText
+                android:id="@+id/clientnbofhour"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="90dp"
+                android:layout_weight="1.3"
+                android:background="@drawable/roundcorners"
+                android:hint="2"
+                android:inputType="number" />
 
         </LinearLayout>
 
@@ -219,36 +252,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-
-            <TextView
-                android:layout_width="168dp"
-                android:layout_height="50dp"
-                android:layout_marginRight="30dp"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:text="number of hour needed"
-
-                android:textColor="@color/colorAccent"
-                android:textColorHighlight="@color/colorAccent" />
-
-            <EditText
-                android:id="@+id/clientnbofhour"
-                android:layout_width="38dp"
-                android:hint="2"
-                android:inputType="number"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_weight="1.3" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
@@ -260,7 +263,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_marginStart="80dp"
-                android:background="@color/colorAccent"
+                android:background="@drawable/roundbutton"
                 android:text="Request"
                 android:textColor="#FFFCFCFE" />
         </LinearLayout>
