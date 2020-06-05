@@ -207,21 +207,21 @@ setURLstring(ids);
             public void onClick(View view) {
 
 
-                retrieveJSON();
 
-//                sunst="1";satst="1";monst="1";wedst="1";tuesst="1";thust="1";frist="1";
-//
-//                        sunbt.setText("Time");
-//                        satbt.setText("Time");
-//                        monbt.setText("Time");
-//                        wedbtn.setText("Time");
-//                        tuesbt.setText("Time");
-//                        thubt.setText("Time");
-//                        fribt.setText("Time");
-//
-//
-//                        suned.setText("");sated.setText("");monde.setText("");weded.setText("");tuesde.setText("");thured.setText("");fried.setText("");
-//                suned.setEnabled(false);sated.setEnabled(false);monde.setEnabled(false);weded.setEnabled(false);tuesde.setEnabled(false);thured.setEnabled(false);fried.setEnabled(false);
+
+                sunst="1";satst="1";monst="1";wedst="1";tuesst="1";thust="1";frist="1";
+
+                        sunbt.setText("Time");
+                        satbt.setText("Time");
+                        monbt.setText("Time");
+                        wedbtn.setText("Time");
+                        tuesbt.setText("Time");
+                        thubt.setText("Time");
+                        fribt.setText("Time");
+
+
+                        suned.setText("");sated.setText("");monde.setText("");weded.setText("");tuesde.setText("");thured.setText("");fried.setText("");
+                suned.setEnabled(false);sated.setEnabled(false);monde.setEnabled(false);weded.setEnabled(false);tuesde.setEnabled(false);thured.setEnabled(false);fried.setEnabled(false);
 
             }
         });
@@ -537,13 +537,15 @@ setURLstring(ids);
                                         case "sun" :
 
                                             sunbt.setText(jtime+":00");
+                                            sunst=jtime;
                                             suned.setEnabled(true);
                                             suned.setText(javahour);
+
 
                                             break; // break is optional
 
                                         case "mon" :
-
+                                            monst=jtime;
                                             monbt.setText(jtime+":00");
                                             monde.setEnabled(true);
                                             monde.setText(javahour);
@@ -551,41 +553,42 @@ setURLstring(ids);
 
                                         // values must be of same type of expression
                                         case "tue" :
-
+                                            tuesst=jtime;
                                             tuesbt.setText(jtime+":00");
                                             tuesde.setEnabled(true);
                                             tuesde.setText(javahour);
                                             break; // break is optional
 
                                         case "wed":
-
+                                            wedst=jtime;
                                             wedbtn.setText(jtime+":00");
                                             weded.setEnabled(true);
                                             weded.setText(javahour);
                                             break; // break is optional
 
                                         case "thu" :
-
+                                            thust=jtime;
                                             thubt.setText(jtime+":00");
                                             thured.setEnabled(true);
                                             thured.setText(javahour);
                                             break; // break is optional
 
                                         case "fri" :
-
+                                            frist=jtime;
                                             fribt.setText(jtime+":00");
                                             fried.setEnabled(true);
                                             fried.setText(javahour);
 
                                             break;
                                         case "sat" :
-
+                                            satst=jtime;
                                             satbt.setText(jtime+":00");
                                             sated.setEnabled(true);
                                             sated.setText(javahour);
 
                                             break;
                                         default :
+                                            sunst=jtime;
                                             sunbt.setText(jtime+":00");
                                             suned.setEnabled(true);
                                             suned.setText(javahour);
