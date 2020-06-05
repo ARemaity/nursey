@@ -24,7 +24,7 @@
             <TextView
                 android:id="@+id/clientownfirstName"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="30dp"
                 android:text="Client Name"
                 android:textAlignment="center"
