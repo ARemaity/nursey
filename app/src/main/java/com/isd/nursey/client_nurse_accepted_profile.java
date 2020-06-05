@@ -63,7 +63,7 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_nurse_accepted_profile);
         final int ids=utils.getID(client_nurse_accepted_profile.this);
-        imgURL=imgURL+ids+".jpg";
+
         name=findViewById(R.id.mysnursenursename);
         address=findViewById(R.id.mysnurseaddress);
         type=findViewById(R.id.mysnursetype);
@@ -82,6 +82,7 @@ public class client_nurse_accepted_profile extends AppCompatActivity {
         }
         Intent mIntent = getIntent();
         nids = mIntent.getIntExtra("nid",0);
+        imgURL=imgURL+nids+".jpg";
         tids = mIntent.getIntExtra("tid",0);
         phones=mIntent.getIntExtra("phone",0);
         names=mIntent.getStringExtra("name");

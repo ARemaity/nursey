@@ -66,7 +66,7 @@ public class client_nurse_req_profile extends AppCompatActivity {
         address=findViewById(R.id.clientreqnurseaddress);
         type=findViewById(R.id.clientreqnursetype);
         final int ids=utils.getID(client_nurse_req_profile.this);
-        imgURL=imgURL+ids+".jpg";
+
         age=findViewById(R.id.clientreqnurseage);
         gender=findViewById(R.id.clientreqnursegender);
         cvbtn=findViewById(R.id.clientreqnursecv);
@@ -82,6 +82,8 @@ public class client_nurse_req_profile extends AppCompatActivity {
         }
         Intent mIntent = getIntent();
         nurseid = mIntent.getIntExtra("nid",0);
+        nurseid = mIntent.getIntExtra("nid",0);
+        imgURL=imgURL+nurseid+".jpg";
         sid = mIntent.getIntExtra("sid",0);
         nursenbhour=mIntent.getIntExtra("nursenbhour",0);
         clienthour=mIntent.getIntExtra("clienthour", clienthour);
