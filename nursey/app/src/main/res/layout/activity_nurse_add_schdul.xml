@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".nurse_add_schdul">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Schedule"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFCFCFE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <!--must put here the icon -->
+
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Sunday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <Button
+
+                android:id="@+id/sunpick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/mdtp_white" />
+
+            <EditText
+                android:id="@+id/sunedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            tools:context=".client_regs">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Monday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+            <Button
+
+                android:id="@+id/monpick"
+                android:layout_width="2dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/monedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Tuesday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <Button
+
+                android:id="@+id/tuepick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/tueedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/row4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Wednesday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <Button
+
+                android:id="@+id/wedpick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/wededit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Thursday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <Button
+
+                android:id="@+id/thupick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/thuedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Friday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <Button
+
+                android:id="@+id/fripick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/friedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.2"
+                android:text="Saturday"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <Button
+
+                android:id="@+id/satpick"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.8"
+                android:imeOptions="actionNext"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/satedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="0.8"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/submitsch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorAccent"
+                android:padding="5dp"
+                android:text="Submit"
+                android:textAlignment="center"
+                android:textColor="#FFF2F2F7" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
