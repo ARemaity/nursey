@@ -64,8 +64,9 @@
                 android:id="@+id/imageView32"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
                 android:layout_weight="0.1"
-                android:src="@drawable/phone" />
+                android:src="@drawable/letter" />
 
             <TextView
                 android:id="@+id/nurseClientemail"
@@ -88,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                android:src="@drawable/letter" />
+                android:src="@drawable/phone" />
 
             <TextView
                 android:id="@+id/nurseClientProfilenum"
@@ -157,18 +158,20 @@
             <ImageView
                 android:id="@+id/imageView21"
                 android:layout_width="75dp"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="0.1"
                 android:src="@drawable/details" />
 
             <TextView
                 android:id="@+id/nurseClientProfilepdetails"
                 android:layout_width="374dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
+                android:layout_marginEnd="10dp"
                 android:text="Case"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
+                android:background="@drawable/roundcorners"
                 android:textSize="18sp" />
         </LinearLayout>
 

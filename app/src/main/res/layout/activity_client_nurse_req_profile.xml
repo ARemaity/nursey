@@ -20,10 +20,16 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
-            <ImageView
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/clientreqimage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="110dp"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp"
                 app:srcCompat="@drawable/nurse" />
         </LinearLayout>
 

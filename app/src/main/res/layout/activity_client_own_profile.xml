@@ -67,17 +67,18 @@
             <ImageView
                 android:id="@+id/imageView32"
                 android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="1dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_weight="0.1"
                 android:src="@drawable/letter" />
 
             <TextView
                 android:id="@+id/clientownemail"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="03456789"
+                android:layout_marginStart="10dp"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
@@ -117,7 +118,7 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="10dp"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginStart="2dp"
                 android:layout_weight="0.1"
                 android:src="@drawable/contacts" />
@@ -125,7 +126,7 @@
             <TextView
                 android:id="@+id/clientownpname"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text=" Patient: Me "
                 android:textAlignment="viewStart"
@@ -141,17 +142,19 @@
 
             <ImageView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight="0.1"
                 android:src="@drawable/details" />
 
             <TextView
                 android:id="@+id/clientownpdetails"
                 android:layout_width="46dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="0.5"
+                android:background="@drawable/roundcorners"
                 android:text="Patient Case"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorAccent"
